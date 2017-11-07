@@ -166,6 +166,10 @@ public:
     bool WriteZerocoinSpendSerialEntry(const CZerocoinSpend& zerocoinSpend);
     bool EraseZerocoinSpendSerialEntry(const CBigNum& serialEntry);
     bool ReadZerocoinSpendSerialEntry(const CBigNum& bnSerial);
+    bool WriteXIONSeed(const uint256& seed);
+    bool ReadXIONSeed(uint256& seed);
+    bool WriteXIONCount(const uint32_t& nCount);
+    bool ReadXIONCount(uint32_t& nCount);
     bool ReadZerocoinMintFromSerial(const CBigNum& bnSerial, CZerocoinMint& mint);
 
 private:
