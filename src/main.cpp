@@ -1285,6 +1285,11 @@ bool ContextualCheckZerocoinSpend(const CTransaction& tx, const CoinSpend& spend
     if (pindex->nHeight >= Params().Zerocoin_Block_V2_Start()) {
         if (!spend.HasValidSignature())
             return error("%s: V2 xION spend does not have a valid signature", __func__);
+
+        if (spend.getSpendType() != libzerocoin::SpendType::SPEND) {
+            return error("%s: trying to spend xION without the correct spend type. txid=%s", __func__,
+                         tx.GetHash().GetHex());
+        }
     }
 
     //Is the serial # already in the blockchain
