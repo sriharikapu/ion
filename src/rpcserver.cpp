@@ -357,6 +357,7 @@ static const CRPCCommand vRPCCommands[] =
         {"ion", "listmasternodes", &listmasternodes, true, true, false},
         {"ion", "getmasternodecount", &getmasternodecount, true, true, false},
         {"ion", "masternodeconnect", &masternodeconnect, true, true, false},
+        {"ion", "masternodebroadcast", &masternodebroadcast, true, true, false},
         {"ion", "masternodecurrent", &masternodecurrent, true, true, false},
         {"ion", "masternodedebug", &masternodedebug, true, true, false},
         {"ion", "startmasternode", &startmasternode, true, true, false},
