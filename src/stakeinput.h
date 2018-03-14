@@ -34,30 +34,20 @@ class CXIonStake : public CStakeInput
 {
 private:
     uint32_t nChecksum;
-    CZerocoinMint mint;
     bool fMint;
     libzerocoin::CoinDenomination denom;
-    CBigNum bnSerial;
-
+    uint256 hashSerial;
 
 public:
-    explicit CXIonStake(CZerocoinMint mint)
+    explicit CXIonStake(libzerocoin::CoinDenomination denom, const uint256& hashSerial)
     {
-        this->mint = mint;
-        this->denom = mint.GetDenomination();
-        this->bnSerial = mint.GetSerialNumber();
+        this->denom = denom;
+        this->hashSerial = hashSerial;
         this->pindexFrom = nullptr;
         fMint = true;
     }
 
-    explicit CXIonStake(libzerocoin::CoinSpend spend)
-    {
-        this->nChecksum = spend.getAccumulatorChecksum();
-        this->denom = spend.getDenomination();
-        this->bnSerial = spend.getCoinSerialNumber();
-        this->pindexFrom = nullptr;
-        fMint = false;
-    }
+    explicit CXIonStake(const libzerocoin::CoinSpend& spend);
 
     CBlockIndex* GetIndexFrom() override;
     bool GetTxFrom(CTransaction& tx) override;

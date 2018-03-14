@@ -1647,6 +1647,9 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
 
         bool fEnableXIONBackups = GetBoolArg("-backupxion", true);
         pwalletMain->setXIONAutoBackups(fEnableXIONBackups);
+
+        //Load zerocoin mint hashes to memory
+        CWalletDB(pwalletMain->strWalletFile).ListMintedCoins(true, true, true, &(pwalletMain->mapSerialHashes));
     }  // (!fDisableWallet)
 #else  // ENABLE_WALLET
     LogPrintf("No wallet compiled in!\n");

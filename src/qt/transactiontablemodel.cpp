@@ -422,8 +422,9 @@ QString TransactionTableModel::formatTxToAddress(const TransactionRecord* wtx, b
         return QString::fromStdString(wtx->address) + watchAddress;
     case TransactionRecord::ZerocoinMint:
     case TransactionRecord::ZerocoinSpend_Change_xION:
+        return tr("Anonymous (xION Transaction)");
     case TransactionRecord::StakeXION:
-        return tr("xION Accumulator");
+        return tr("Anonymous (xION Stake)");
     case TransactionRecord::SendToSelf:
     default:
         return tr("(n/a)") + watchAddress;
