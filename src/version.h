@@ -24,6 +24,9 @@ static const int GETHEADERS_VERSION = 95610;
 static const int MIN_PEER_PROTO_VERSION_BEFORE_ENFORCEMENT = 95610;
 static const int MIN_PEER_PROTO_VERSION_AFTER_ENFORCEMENT = 95700;
 
+//! masternodes older than this proto version use old strMessage format for mnannounce
+static const int MIN_PEER_MNANNOUNCE = 95701;
+
 //! nTime field added to CAddress, starting with this version;
 //! if possible, avoid requesting addresses nodes older than this
 static const int CADDR_TIME_VERSION = 95700;
