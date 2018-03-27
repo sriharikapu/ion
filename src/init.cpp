@@ -1656,15 +1656,14 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
         bool fFirstRunZWallet = !CWalletDB(pwalletMain->strWalletFile).ReadXIONSeed(seed);
         zwalletMain = new CxIONWallet(pwalletMain->strWalletFile, fFirstRunZWallet);
         uiInterface.InitMessage(_("Syncing xION wallet..."));
-        zwalletMain->SyncWithChain();
 
         pwalletMain->setZWallet(zwalletMain);
-
         bool fEnableXIONBackups = GetBoolArg("-backupxion", true);
         pwalletMain->setXIONAutoBackups(fEnableXIONBackups);
 
         //Load zerocoin mint hashes to memory
-        CWalletDB(pwalletMain->strWalletFile).ListMintedCoins(true, true, true, &(pwalletMain->mapSerialHashes));
+        CWalletDB(pwalletMain->strWalletFile).ListMintedCoins(true, true, true, pwalletMain->xionTracker);
+        zwalletMain->SyncWithChain();
     }  // (!fDisableWallet)
 #else  // ENABLE_WALLET
     LogPrintf("No wallet compiled in!\n");
