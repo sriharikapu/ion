@@ -138,6 +138,8 @@ static const CRPCConvertParam vRPCConvertParams[] =
         {"getspentzerocoinamount", 1},
         {"generatemintlist", 0},
         {"generatemintlist", 1},
+        {"searchdxion", 0},
+        {"searchdxion", 1},
         {"getfeeinfo", 0}
     };
 

@@ -262,6 +262,7 @@ extern UniValue getspentzerocoinamount(const UniValue& params, bool fHelp);
 extern UniValue setxionseed(const UniValue& params, bool fHelp);
 extern UniValue getxionseed(const UniValue& params, bool fHelp);
 extern UniValue generatemintlist(const UniValue& params, bool fHelp);
+extern UniValue searchdxion(const UniValue& params, bool fHelp);
 
 extern UniValue getrawtransaction(const UniValue& params, bool fHelp); // in rcprawtransaction.cpp
 extern UniValue listunspent(const UniValue& params, bool fHelp);
