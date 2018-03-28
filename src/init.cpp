@@ -20,6 +20,7 @@
 #include "compat/sanity.h"
 #include "httpserver.h"
 #include "httprpc.h"
+#include "invalid.h"
 #include "key.h"
 #include "main.h"
 #include "masternode-budget.h"
@@ -1440,7 +1441,8 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
                 }
 
                 // Populate list of invalid/fraudulent outpoints that are banned from the chain
-                PopulateInvalidOutPointMap();
+                invalid_out::LoadOutpoints();
+                invalid_out::LoadSerials();
 
                 // Recalculate money supply for blocks that are impacted by accounting issue after zerocoin activation
                 if (GetBoolArg("-reindexmoneysupply", false)) {
@@ -1662,7 +1664,7 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
         pwalletMain->setXIONAutoBackups(fEnableXIONBackups);
 
         //Load zerocoin mint hashes to memory
-        CWalletDB(pwalletMain->strWalletFile).ListMintedCoins(true, true, true, pwalletMain->xionTracker);
+        pwalletMain->xionTracker->Init();
         zwalletMain->LoadMintPoolFromDB();
         zwalletMain->RemoveMintsFromPool(pwalletMain->xionTracker->GetSerialHashes());
         zwalletMain->SyncWithChain();

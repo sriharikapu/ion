@@ -4,7 +4,7 @@
 
 #include "accumulators.h"
 #include "chain.h"
-#include "primitives/zerocoin.h"
+#include "primitives/deterministicmint.h"
 #include "main.h"
 #include "stakeinput.h"
 #include "wallet.h"
@@ -107,7 +107,7 @@ bool CXIonStake::CreateTxIn(CWallet* pwallet, CTxIn& txIn, uint256 hashTxOut)
         return error("%s: failed to find checkpoint block index", __func__);
 
     CZerocoinMint mint;
-    if (!pwallet->GetMint(hashSerial, mint))
+    if (!pwallet->GetMintFromStakeHash(hashSerial, mint))
         return error("%s: failed to fetch mint associated with serial hash %s", __func__, hashSerial.GetHex());
 
     if (libzerocoin::ExtractVersionFromSerial(mint.GetSerialNumber()) < 2)
@@ -128,25 +128,24 @@ bool CXIonStake::CreateTxOuts(CWallet* pwallet, vector<CTxOut>& vout)
     //Create an output returning the xION that was staked
     CTxOut outReward;
     libzerocoin::CoinDenomination denomStaked = libzerocoin::AmountToZerocoinDenomination(this->GetValue());
-    libzerocoin::PrivateCoin coin(Params().Zerocoin_Params(false), denomStaked);
-    if (!pwallet->CreateXIONOutPut(denomStaked, coin, outReward))
+    CDeterministicMint dMint;
+    if (!pwallet->CreateXIONOutPut(denomStaked, outReward, dMint))
         return error("%s: failed to create xION output", __func__);
     vout.emplace_back(outReward);
 
     //Add new staked denom to our wallet
-    if (!pwallet->DatabaseMint(&coin))
+    if (!pwallet->DatabaseMint(dMint))
         return error("%s: failed to database the staked xION", __func__);
 
     for (unsigned int i = 0; i < 3; i++) {
         CTxOut out;
-        libzerocoin::PrivateCoin coinReward(Params().Zerocoin_Params(false), libzerocoin::CoinDenomination::ZQ_ONE);
-        if (!pwallet->CreateXIONOutPut(libzerocoin::CoinDenomination::ZQ_ONE, coinReward, out))
+        CDeterministicMint dMintReward;
+        if (!pwallet->CreateXIONOutPut(libzerocoin::CoinDenomination::ZQ_ONE, out, dMintReward))
             return error("%s: failed to create xION output", __func__);
         vout.emplace_back(out);
 
-        if (!pwallet->DatabaseMint(&coinReward))
+        if (!pwallet->DatabaseMint(dMintReward))
             return error("%s: failed to database mint reward", __func__);
-
     }
 
     return true;
@@ -160,12 +159,13 @@ bool CXIonStake::GetTxFrom(CTransaction& tx)
 
 bool CXIonStake::MarkSpent(CWallet *pwallet)
 {
-    CZerocoinMint mint;
-    if (!pwallet->GetMint(hashSerial, mint))
-        return error("%s: failed to retrieve mint associated with serial hash", __func__);
-    mint.SetUsed(true);
+    CxIONTracker* xionTracker = pwallet->xionTracker;
+    CMintMeta meta;
+    if (!xionTracker->GetMetaFromStakeHash(hashSerial, meta))
+        return error("%s: tracker does not have serialhash", __func__);
+    meta.isUsed = true;
 
-    return pwallet->xionTracker->UpdateMint(mint);
+    return xionTracker->UpdateState(meta);
 }
 
 //!ION Stake
