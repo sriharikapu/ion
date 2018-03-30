@@ -135,5 +135,3 @@ contrib/patches/
 # text editors
 .vscode/
 
-# snap files
-ion_master_source.tar.bz2
