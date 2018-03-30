@@ -1712,9 +1712,7 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
         fVerifyingBlocks = false;
 
         //Inititalize xIONWallet
-        uint256 seed = 0;
-        bool fFirstRunZWallet = !CWalletDB(pwalletMain->strWalletFile).ReadXIONSeed(seed);
-        zwalletMain = new CxIONWallet(pwalletMain->strWalletFile, fFirstRunZWallet);
+        zwalletMain = new CxIONWallet(pwalletMain->strWalletFile);
         uiInterface.InitMessage(_("Syncing xION wallet..."));
 
         pwalletMain->setZWallet(zwalletMain);
