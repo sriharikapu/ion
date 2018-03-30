@@ -2,8 +2,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_QT_BITCOINAMOUNTFIELD_H
-#define BITCOIN_QT_BITCOINAMOUNTFIELD_H
+#ifndef ION_QT_IONAMOUNTFIELD_H
+#define ION_QT_IONAMOUNTFIELD_H
 
 #include "amount.h"
 
@@ -15,14 +15,14 @@ QT_BEGIN_NAMESPACE
 class QValueComboBox;
 QT_END_NAMESPACE
 
-/** Widget for entering bitcoin amounts.
+/** Widget for entering ion amounts.
   */
 class BitcoinAmountField : public QWidget
 {
     Q_OBJECT
 
     // ugly hack: for some unknown reason CAmount (instead of qint64) does not work here as expected
-    // discussion: https://github.com/bitcoin/bitcoin/pull/5117
+    // discussion: https://github.com/ion/ion/pull/5117
     Q_PROPERTY(qint64 value READ value WRITE setValue NOTIFY valueChanged USER true)
 
 public:
@@ -71,4 +71,4 @@ private slots:
     void unitChanged(int idx);
 };
 
-#endif // BITCOIN_QT_BITCOINAMOUNTFIELD_H
+#endif // ION_QT_IONAMOUNTFIELD_H

@@ -22,10 +22,10 @@ EXCLUDE = [
     'src/secp256k1/include/secp256k1_ecdh.h',
     'src/secp256k1/include/secp256k1_recovery.h',
     'src/secp256k1/include/secp256k1_schnorr.h',
-    'src/secp256k1/src/java/org_bitcoin_NativeSecp256k1.c',
-    'src/secp256k1/src/java/org_bitcoin_NativeSecp256k1.h',
-    'src/secp256k1/src/java/org_bitcoin_Secp256k1Context.c',
-    'src/secp256k1/src/java/org_bitcoin_Secp256k1Context.h',
+    'src/secp256k1/src/java/org_ion_NativeSecp256k1.c',
+    'src/secp256k1/src/java/org_ion_NativeSecp256k1.h',
+    'src/secp256k1/src/java/org_ion_Secp256k1Context.c',
+    'src/secp256k1/src/java/org_ion_Secp256k1Context.h',
     # univalue:
     'src/univalue/test/object.cpp',
     'src/univalue/lib/univalue_escapes.h',
@@ -298,7 +298,7 @@ Usage:
     $ ./copyright_header.py report <base_directory> [verbose]
 
 Arguments:
-    <base_directory> - The base directory of a bitcoin source code repository.
+    <base_directory> - The base directory of a ion source code repository.
     [verbose] - Includes a list of every file of each subcategory in the report.
 """
 
@@ -454,7 +454,7 @@ Usage:
     $ ./copyright_header.py update <base_directory>
 
 Arguments:
-    <base_directory> - The base directory of a bitcoin source code repository.
+    <base_directory> - The base directory of a ion source code repository.
 """
 
 def print_file_action_message(filename, action):
@@ -576,7 +576,7 @@ Usage:
     $ ./copyright_header.py insert <file>
 
 Arguments:
-    <file> - A source file in the bitcoin repository.
+    <file> - A source file in the ion repository.
 """
 
 def insert_cmd(argv):

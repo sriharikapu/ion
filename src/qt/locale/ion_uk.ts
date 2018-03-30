@@ -196,7 +196,7 @@
     <name>Bip38ToolDialog</name>
     </context>
 <context>
-    <name>BitcoinGUI</name>
+    <name>IonGUI</name>
     <message>
         <source>Unlock wallet</source>
         <translation>Розблокувати гаманець</translation>

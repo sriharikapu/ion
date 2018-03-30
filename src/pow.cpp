@@ -67,7 +67,7 @@ unsigned int GetNextWorkRequiredOrig(const CBlockIndex* pindexLast, bool fProofO
 // huge changes in hashing power, is immune to time warp attacks, and regulates the block rate to keep the block height
 // close to the block height expected given the nominal block interval and the elapsed time.  How close the
 // correspondence between block height and wall clock time is, depends on how stable the hashing power has been.  Maybe
-// Bitcoin can wait 2 weeks between updates but no altcoin can.
+// Ion can wait 2 weeks between updates but no altcoin can.
 
 // It is important that none of these intervals (5, 7, 9, 17) have any common divisor; eliminating the existence of
 // harmonics is an important part of eliminating the effectiveness of timewarp attacks.

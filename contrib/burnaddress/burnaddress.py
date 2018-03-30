@@ -7,7 +7,7 @@
 # Source: https://gist.github.com/CoinWhisperer/6d673f1f3d13da1611cd
 
 """
-burn-btc: create a bitcoin burn address
+burn-btc: create a ion burn address
 By James C. Stroud
 This program requries base58 (https://pypi.python.org/pypi/base58/0.2.1).
 Call the program with a template burn address as the only argument::

@@ -40,7 +40,7 @@ def determine_db_dir():
         return os.path.join(os.environ['APPDATA'], "ioncoin")
     return os.path.expanduser("~/.ioncoin")
 
-def read_bitcoin_config(dbdir):
+def read_ion_config(dbdir):
     """Read the ioncoin.conf file from dbdir, returns dictionary of settings"""
     from ConfigParser import SafeConfigParser
 
@@ -238,7 +238,7 @@ def main():
     (options, args) = parser.parse_args()
 
     check_json_precision()
-    config = read_bitcoin_config(options.datadir)
+    config = read_ion_config(options.datadir)
     if options.testnet: config['testnet'] = True
     iond = connect_JSON(config)
 

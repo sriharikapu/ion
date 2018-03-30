@@ -316,7 +316,7 @@
     </message>
 </context>
 <context>
-    <name>BitcoinGUI</name>
+    <name>IonGUI</name>
     <message>
         <source>Wallet</source>
         <translation>Portfel</translation>
@@ -539,11 +539,11 @@
     </message>
     <message>
         <source>&amp;About Ion Core</source>
-        <translation>&amp;O rdzeniu bitcoina</translation>
+        <translation>&amp;O rdzeniu iona</translation>
     </message>
     <message>
         <source>Show information about Ion Core</source>
-        <translation>Pokaż informacje o rdzeniu bitcoina</translation>
+        <translation>Pokaż informacje o rdzeniu iona</translation>
     </message>
     <message>
         <source>Modify configuration options for ION</source>

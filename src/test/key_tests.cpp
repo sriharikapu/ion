@@ -21,10 +21,10 @@ static const string strSecret1     ("69ehTAwK6mhKRJRNDwXHqFkM4mkgPbFt7Rj1MWu7ks7
 static const string strSecret2     ("69Whty8G6vwCQh96KDmK16LUNrPVwqzcB8MVHH97qLuWTSg96kW");
 static const string strSecret1C    ("PmpkHSZJvhqDNzY8rJSkB2WyDH4nxxZW216rg3ZKcaDiRNCWhPJX");
 static const string strSecret2C    ("PnHVJQjdAXfNMEME5uPyaw2MyamntTKSKfZeNGL6PceQMdzk9a7m");
-static const CBitcoinAddress addr1 ("ii8C94e6fkcFmxvq3FvXzV2RWT7q114jBe");
-static const CBitcoinAddress addr2 ("ifp4Ljirwj11kxBhm5jwG45cLxwKyLazyG");
-static const CBitcoinAddress addr1C("ihuxqbtFnyXngSMBkfTTxiouzWcJbeeAyf");
-static const CBitcoinAddress addr2C("ickagwMApzUbAbh53871Uuj7QisRAov2u6");
+static const CIonAddress addr1 ("ii8C94e6fkcFmxvq3FvXzV2RWT7q114jBe");
+static const CIonAddress addr2 ("ifp4Ljirwj11kxBhm5jwG45cLxwKyLazyG");
+static const CIonAddress addr1C("ihuxqbtFnyXngSMBkfTTxiouzWcJbeeAyf");
+static const CIonAddress addr2C("ickagwMApzUbAbh53871Uuj7QisRAov2u6");
 
 
 static const string strAddressBad("XhGzCmTo4aXEiuU7fmYjKdh6KBSpmWy3Cz");
@@ -45,14 +45,14 @@ void dumpKeyInfo(uint256 privkey)
     {
         bool fCompressed = nCompressed == 1;
         printf("  * %s:\n", fCompressed ? "compressed" : "uncompressed");
-        CBitcoinSecret bsecret;
+        CIonSecret bsecret;
         bsecret.SetSecret(secret, fCompressed);
         printf("    * secret (base58): %s\n", bsecret.ToString().c_str());
         CKey key;
         key.SetSecret(secret, fCompressed);
         vector<unsigned char> vchPubKey = key.GetPubKey();
         printf("    * pubkey (hex): %s\n", HexStr(vchPubKey).c_str());
-        printf("    * address (base58): %s\n", CBitcoinAddress(vchPubKey).ToString().c_str());
+        printf("    * address (base58): %s\n", CIonAddress(vchPubKey).ToString().c_str());
     }
 }
 #endif
@@ -62,7 +62,7 @@ BOOST_AUTO_TEST_SUITE(key_tests)
 
 BOOST_AUTO_TEST_CASE(key_test1)
 {
-    CBitcoinSecret bsecret1, bsecret2, bsecret1C, bsecret2C, baddress1;
+    CIonSecret bsecret1, bsecret2, bsecret1C, bsecret2C, baddress1;
     BOOST_CHECK( bsecret1.SetString (strSecret1));
     BOOST_CHECK( bsecret2.SetString (strSecret2));
     BOOST_CHECK( bsecret1C.SetString(strSecret1C));

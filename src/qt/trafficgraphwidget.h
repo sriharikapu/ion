@@ -2,8 +2,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_QT_TRAFFICGRAPHWIDGET_H
-#define BITCOIN_QT_TRAFFICGRAPHWIDGET_H
+#ifndef ION_QT_TRAFFICGRAPHWIDGET_H
+#define ION_QT_TRAFFICGRAPHWIDGET_H
 
 #include <QQueue>
 #include <QWidget>
@@ -45,4 +45,4 @@ private:
     ClientModel* clientModel;
 };
 
-#endif // BITCOIN_QT_TRAFFICGRAPHWIDGET_H
+#endif // ION_QT_TRAFFICGRAPHWIDGET_H

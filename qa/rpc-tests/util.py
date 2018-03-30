@@ -8,10 +8,10 @@
 # Helpful routines for regression testing
 #
 
-# Add python-bitcoinrpc to module search path:
+# Add python-ionrpc to module search path:
 import os
 import sys
-sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), "python-bitcoinrpc"))
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), "python-ionrpc"))
 
 from decimal import Decimal, ROUND_DOWN
 import json
@@ -21,7 +21,7 @@ import subprocess
 import time
 import re
 
-from bitcoinrpc.authproxy import AuthServiceProxy, JSONRPCException
+from ionrpc.authproxy import AuthServiceProxy, JSONRPCException
 from util import *
 
 def p2p_port(n):
@@ -61,7 +61,7 @@ def sync_mempools(rpc_connections):
             break
         time.sleep(1)
 
-bitcoind_processes = {}
+iond_processes = {}
 
 def initialize_datadir(dirname, n):
     datadir = os.path.join(dirname, "node"+str(n))
@@ -87,11 +87,11 @@ def initialize_chain(test_dir):
         # Create cache directories, run iond:
         for i in range(4):
             datadir=initialize_datadir("cache", i)
-            args = [ os.getenv("BITCOIND", "iond"), "-keypool=1", "-datadir="+datadir, "-discover=0" ]
+            args = [ os.getenv("IOND", "iond"), "-keypool=1", "-datadir="+datadir, "-discover=0" ]
             if i > 0:
                 args.append("-connect=127.0.0.1:"+str(p2p_port(0)))
-            bitcoind_processes[i] = subprocess.Popen(args)
-            subprocess.check_call([ os.getenv("BITCOINCLI", "ion-cli"), "-datadir="+datadir,
+            iond_processes[i] = subprocess.Popen(args)
+            subprocess.check_call([ os.getenv("IONCLI", "ion-cli"), "-datadir="+datadir,
                                     "-rpcwait", "getblockcount"], stdout=devnull)
         devnull.close()
         rpcs = []
@@ -119,7 +119,7 @@ def initialize_chain(test_dir):
 
         # Shut them down, and clean up cache directories:
         stop_nodes(rpcs)
-        wait_bitcoinds()
+        wait_ionds()
         for i in range(4):
             os.remove(log_filename("cache", i, "debug.log"))
             os.remove(log_filename("cache", i, "db.log"))
@@ -166,11 +166,11 @@ def start_node(i, dirname, extra_args=None, rpchost=None):
     Start a iond and return RPC connection to it
     """
     datadir = os.path.join(dirname, "node"+str(i))
-    args = [ os.getenv("BITCOIND", "iond"), "-datadir="+datadir, "-keypool=1", "-discover=0", "-rest" ]
+    args = [ os.getenv("IOND", "iond"), "-datadir="+datadir, "-keypool=1", "-discover=0", "-rest" ]
     if extra_args is not None: args.extend(extra_args)
-    bitcoind_processes[i] = subprocess.Popen(args)
+    iond_processes[i] = subprocess.Popen(args)
     devnull = open("/dev/null", "w+")
-    subprocess.check_call([ os.getenv("BITCOINCLI", "ion-cli"), "-datadir="+datadir] +
+    subprocess.check_call([ os.getenv("IONCLI", "ion-cli"), "-datadir="+datadir] +
                           _rpchost_to_args(rpchost)  +
                           ["-rpcwait", "getblockcount"], stdout=devnull)
     devnull.close()
@@ -191,8 +191,8 @@ def log_filename(dirname, n_node, logname):
 
 def stop_node(node, i):
     node.stop()
-    bitcoind_processes[i].wait()
-    del bitcoind_processes[i]
+    iond_processes[i].wait()
+    del iond_processes[i]
 
 def stop_nodes(nodes):
     for node in nodes:
@@ -203,11 +203,11 @@ def set_node_times(nodes, t):
     for node in nodes:
         node.setmocktime(t)
 
-def wait_bitcoinds():
-    # Wait for all bitcoinds to cleanly exit
-    for bitcoind in bitcoind_processes.values():
-        bitcoind.wait()
-    bitcoind_processes.clear()
+def wait_ionds():
+    # Wait for all ionds to cleanly exit
+    for iond in iond_processes.values():
+        iond.wait()
+    iond_processes.clear()
 
 def connect_nodes(from_connection, node_num):
     ip_port = "127.0.0.1:"+str(p2p_port(node_num))

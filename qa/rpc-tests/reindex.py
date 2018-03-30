@@ -9,7 +9,7 @@
 # Test -reindex with CheckBlockIndex
 #
 from test_framework import BitcoinTestFramework
-from bitcoinrpc.authproxy import AuthServiceProxy, JSONRPCException
+from ionrpc.authproxy import AuthServiceProxy, JSONRPCException
 from util import *
 import os.path
 
@@ -27,7 +27,7 @@ class ReindexTest(BitcoinTestFramework):
     def run_test(self):
         self.nodes[0].generate(3)
         stop_node(self.nodes[0], 0)
-        wait_bitcoinds()
+        wait_ionds()
         self.nodes[0]=start_node(0, self.options.tmpdir, ["-debug", "-reindex", "-checkblockindex=1"])
         assert_equal(self.nodes[0].getblockcount(), 3)
         print "Success"

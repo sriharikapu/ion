@@ -11,5 +11,5 @@ import buildenv
 
 if __name__ == '__main__':
 	bctest.bctester(os.environ["srcdir"] + "/test/data",
-			"bitcoin-util-test.json",buildenv)
+			"ion-util-test.json",buildenv)
 

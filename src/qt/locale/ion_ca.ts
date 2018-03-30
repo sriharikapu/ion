@@ -224,7 +224,7 @@
     </message>
     </context>
 <context>
-    <name>BitcoinGUI</name>
+    <name>IonGUI</name>
     <message>
         <source>Wallet</source>
         <translation>Moneder</translation>

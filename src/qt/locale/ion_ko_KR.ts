@@ -392,7 +392,7 @@
     </message>
 </context>
 <context>
-    <name>BitcoinGUI</name>
+    <name>IonGUI</name>
     <message>
         <source>Wallet</source>
         <translation>지갑</translation>

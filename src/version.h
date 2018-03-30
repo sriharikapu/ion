@@ -5,8 +5,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_VERSION_H
-#define BITCOIN_VERSION_H
+#ifndef ION_VERSION_H
+#define ION_VERSION_H
 
 /**
  * network protocol versioning
@@ -38,4 +38,4 @@ static const int MEMPOOL_GD_VERSION = 75000;
 static const int NO_BLOOM_VERSION = 95700;
 
 
-#endif // BITCOIN_VERSION_H
+#endif // ION_VERSION_H

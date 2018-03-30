@@ -7,7 +7,7 @@
 
 #include "addressbookpage.h"
 #include "addresstablemodel.h"
-#include "bitcoinunits.h"
+#include "ionunits.h"
 #include "coincontroldialog.h"
 #include "libzerocoin/Denominations.h"
 #include "optionsmodel.h"
@@ -322,7 +322,7 @@ void PrivacyDialog::sendxION()
     QSettings settings;
 
     // Handle 'Pay To' address options
-    CBitcoinAddress address(ui->payTo->text().toStdString());
+    CIonAddress address(ui->payTo->text().toStdString());
     if(ui->payTo->text().isEmpty()){
         QMessageBox::information(this, tr("Spend Zerocoin"), tr("No 'Pay To' address provided, creating local payment"), QMessageBox::Ok, QMessageBox::Ok);
     }
@@ -489,7 +489,7 @@ void PrivacyDialog::sendxION()
         if(txout.scriptPubKey.IsZerocoinMint())
             strStats += tr("xION Mint");
         else if(ExtractDestination(txout.scriptPubKey, dest))
-            strStats += tr(CBitcoinAddress(dest).ToString().c_str());
+            strStats += tr(CIonAddress(dest).ToString().c_str());
         strStats += "\n";
     }
     double fDuration = (double)(GetTimeMillis() - nTime)/1000.0;

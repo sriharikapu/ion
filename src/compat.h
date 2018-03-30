@@ -3,8 +3,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_COMPAT_H
-#define BITCOIN_COMPAT_H
+#ifndef ION_COMPAT_H
+#define ION_COMPAT_H
 
 #if defined(HAVE_CONFIG_H)
 #include "config/ion-config.h"
@@ -101,4 +101,4 @@ bool static inline IsSelectableSocket(SOCKET s)
 #endif
 }
 
-#endif // BITCOIN_COMPAT_H
+#endif // ION_COMPAT_H

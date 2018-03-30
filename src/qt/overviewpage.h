@@ -2,8 +2,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_QT_OVERVIEWPAGE_H
-#define BITCOIN_QT_OVERVIEWPAGE_H
+#ifndef ION_QT_OVERVIEWPAGE_H
+#define ION_QT_OVERVIEWPAGE_H
 
 #include "amount.h"
 
@@ -71,4 +71,4 @@ private slots:
     void updateWatchOnlyLabels(bool showWatchOnly);
 };
 
-#endif // BITCOIN_QT_OVERVIEWPAGE_H
+#endif // ION_QT_OVERVIEWPAGE_H

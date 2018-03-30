@@ -145,7 +145,7 @@ The in-wallet bip38 encryption method was leaving the final 4 bytes of the encry
 This release is a fork to the old chain. Detailed release notes follow.
 We dropped MIDAS and use DGW as well as some other changes. Previous old version
 was based on old projects which were not updated. One of our main goals for v3 release
-was to get closer to bitcoin's source and update in general sources to some newer
+was to get closer to ion's source and update in general sources to some newer
 and cleaner codebase then it was previously. We forked from PIVX which is better
 maintenanced then previous releases of 🗺️Ion Core 👛 which are based on obsolete code.
 In this version everything is new, one big feature iz xION which iz zerocoin for
@@ -245,7 +245,7 @@ Getting and building the inputs
 --------------------------------------
 At this point you have two options, you can either use the automated script (found in https://github.com/cevap/ion/blob/master/contrib/gitian-build.sh, only works in Debian/Ubuntu) or you could manually do everything by following this guide. If you are using the automated script, then run it with the --setup command. Afterwards, run it with the --build command (example: contrib/gitian-build.sh -b signer 3.0.2). Otherwise ignore this.
 
-Follow the instructions in https://github.com/cevap/ion/blob/master/doc/release-process.md in the bitcoin repository under 'Fetch and create inputs' to install sources which require manual intervention. Also optionally follow the next step: 'Seed the Gitian sources cache and offline git repositories' which will fetch the remaining files required for building offline.
+Follow the instructions in https://github.com/cevap/ion/blob/master/doc/release-process.md in the ion repository under 'Fetch and create inputs' to install sources which require manual intervention. Also optionally follow the next step: 'Seed the Gitian sources cache and offline git repositories' which will fetch the remaining files required for building offline.
 
 _**Note**: please use our links here, I left cevap as I do not want to remove it later_
 

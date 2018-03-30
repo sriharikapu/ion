@@ -11,7 +11,7 @@
 #
 
 from test_framework import BitcoinTestFramework
-from bitcoinrpc.authproxy import AuthServiceProxy, JSONRPCException
+from ionrpc.authproxy import AuthServiceProxy, JSONRPCException
 from util import *
 import os
 import shutil

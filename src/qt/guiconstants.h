@@ -5,8 +5,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_QT_GUICONSTANTS_H
-#define BITCOIN_QT_GUICONSTANTS_H
+#ifndef ION_QT_GUICONSTANTS_H
+#define ION_QT_GUICONSTANTS_H
 
 /* Milliseconds between model updates */
 static const int MODEL_UPDATE_DELAY = 250;
@@ -56,4 +56,4 @@ static const int MAX_URI_LENGTH = 255;
 #define QAPP_APP_NAME_DEFAULT "Ion-Qt"
 #define QAPP_APP_NAME_TESTNET "Ion-Qt-testnet"
 
-#endif // BITCOIN_QT_GUICONSTANTS_H
+#endif // ION_QT_GUICONSTANTS_H

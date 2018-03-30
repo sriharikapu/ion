@@ -2,8 +2,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_QT_SENDCOINSDIALOG_H
-#define BITCOIN_QT_SENDCOINSDIALOG_H
+#ifndef ION_QT_SENDCOINSDIALOG_H
+#define ION_QT_SENDCOINSDIALOG_H
 
 #include "walletmodel.h"
 
@@ -26,7 +26,7 @@ QT_BEGIN_NAMESPACE
 class QUrl;
 QT_END_NAMESPACE
 
-/** Dialog for sending bitcoins */
+/** Dialog for sending ions */
 class SendCoinsDialog : public QDialog
 {
     Q_OBJECT
@@ -105,4 +105,4 @@ signals:
     void message(const QString& title, const QString& message, unsigned int style);
 };
 
-#endif // BITCOIN_QT_SENDCOINSDIALOG_H
+#endif // ION_QT_SENDCOINSDIALOG_H

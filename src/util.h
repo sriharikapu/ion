@@ -10,8 +10,8 @@
  * Server/client environment: argument handling, config file parsing,
  * logging, thread wrappers
  */
-#ifndef BITCOIN_UTIL_H
-#define BITCOIN_UTIL_H
+#ifndef ION_UTIL_H
+#define ION_UTIL_H
 
 #if defined(HAVE_CONFIG_H)
 #include "config/ion-config.h"
@@ -231,4 +231,4 @@ void TraceThread(const char* name, Callable func)
     }
 }
 
-#endif // BITCOIN_UTIL_H
+#endif // ION_UTIL_H

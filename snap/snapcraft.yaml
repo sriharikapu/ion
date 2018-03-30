@@ -34,7 +34,7 @@ parts:
     source-tag: master
     plugin: autotools
     # XXX We don't want to copy the full blockchain every time that the snap is
-    # updated, but there's no way to define a default data dir in bitcoin-qt.
+    # updated, but there's no way to define a default data dir in ion-qt.
     # Also, it would be better if we could split the wallet from the blockchain
     prepare: git apply $SNAPCRAFT_STAGE/default_data_dir.patch
     build-packages:

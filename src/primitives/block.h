@@ -5,8 +5,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_PRIMITIVES_BLOCK_H
-#define BITCOIN_PRIMITIVES_BLOCK_H
+#ifndef ION_PRIMITIVES_BLOCK_H
+#define ION_PRIMITIVES_BLOCK_H
 
 #include "primitives/transaction.h"
 #include "keystore.h"
@@ -207,4 +207,4 @@ struct CBlockLocator
     }
 };
 
-#endif // BITCOIN_PRIMITIVES_BLOCK_H
+#endif // ION_PRIMITIVES_BLOCK_H

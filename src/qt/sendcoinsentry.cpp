@@ -35,7 +35,7 @@ SendCoinsEntry::SendCoinsEntry(QWidget* parent) : QStackedWidget(parent),
     // normal ion address field
     GUIUtil::setupAddressWidget(ui->payTo, this);
     // just a label for displaying ion address(es)
-    ui->payTo_is->setFont(GUIUtil::bitcoinAddressFont());
+    ui->payTo_is->setFont(GUIUtil::ionAddressFont());
 
     // Connect signals
     connect(ui->payAmount, SIGNAL(valueChanged()), this, SIGNAL(payAmountChanged()));

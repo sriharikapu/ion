@@ -5,7 +5,7 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "bitcoinaddressvalidator.h"
+#include "ionaddressvalidator.h"
 
 #include "base58.h"
 
@@ -84,7 +84,7 @@ QValidator::State BitcoinAddressCheckValidator::validate(QString& input, int& po
 {
     Q_UNUSED(pos);
     // Validate the passed Ion address
-    CBitcoinAddress addr(input.toStdString());
+    CIonAddress addr(input.toStdString());
     if (addr.IsValid())
         return QValidator::Acceptable;
 

@@ -1,9 +1,9 @@
 Regression tests of RPC interface
 =================================
 
-### [python-bitcoinrpc](https://github.com/jgarzik/python-bitcoinrpc)
-Git subtree of [https://github.com/jgarzik/python-bitcoinrpc](https://github.com/jgarzik/python-bitcoinrpc).
-Changes to python-bitcoinrpc should be made upstream, and then
+### [python-ionrpc](https://github.com/jgarzik/python-ionrpc)
+Git subtree of [https://github.com/jgarzik/python-ionrpc](https://github.com/jgarzik/python-ionrpc).
+Changes to python-ionrpc should be made upstream, and then
 pulled here using git subtree.
 
 ### [test_framework.py](test_framework.py)
@@ -39,5 +39,5 @@ to recover with:
 
 ```bash
 rm -rf cache
-killall bitcoind
+killall iond
 ```

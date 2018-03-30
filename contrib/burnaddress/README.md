@@ -28,5 +28,5 @@ An example template is accessible using "test" as the argument::
     ionBurnAddressBurnPremineXXXZ93EN3
     ```
 
-Validate bitcoin burn addresses at [official ion blockexplorer](https://explorer.ion.com/address/)
+Validate ion burn addresses at [official ion blockexplorer](https://explorer.ion.com/address/)
 

@@ -11,8 +11,8 @@
  * - E-mail usually won't line-break if there's no punctuation to break at.
  * - Double-clicking selects the whole number as one word if it's all alphanumeric.
  */
-#ifndef BITCOIN_BASE58_H
-#define BITCOIN_BASE58_H
+#ifndef ION_BASE58_H
+#define ION_BASE58_H
 
 #include "chainparams.h"
 #include "key.h"
@@ -106,7 +106,7 @@ public:
  * Script-hash-addresses have version 5 (or 196 testnet).
  * The data vector contains RIPEMD160(SHA256(cscript)), where cscript is the serialized redemption script.
  */
-class CBitcoinAddress : public CBase58Data
+class CIonAddress : public CBase58Data
 {
 public:
     bool Set(const CKeyID& id);
@@ -115,10 +115,10 @@ public:
     bool IsValid() const;
     bool IsValid(const CChainParams& params) const;
 
-    CBitcoinAddress() {}
-    CBitcoinAddress(const CTxDestination& dest) { Set(dest); }
-    CBitcoinAddress(const std::string& strAddress) { SetString(strAddress); }
-    CBitcoinAddress(const char* pszAddress) { SetString(pszAddress); }
+    CIonAddress() {}
+    CIonAddress(const CTxDestination& dest) { Set(dest); }
+    CIonAddress(const std::string& strAddress) { SetString(strAddress); }
+    CIonAddress(const char* pszAddress) { SetString(pszAddress); }
 
     CTxDestination Get() const;
     bool GetKeyID(CKeyID& keyID) const;
@@ -128,7 +128,7 @@ public:
 /**
  * A base58-encoded secret key
  */
-class CBitcoinSecret : public CBase58Data
+class CIonSecret : public CBase58Data
 {
 public:
     void SetKey(const CKey& vchSecret);
@@ -137,12 +137,12 @@ public:
     bool SetString(const char* pszSecret);
     bool SetString(const std::string& strSecret);
 
-    CBitcoinSecret(const CKey& vchSecret) { SetKey(vchSecret); }
-    CBitcoinSecret() {}
+    CIonSecret(const CKey& vchSecret) { SetKey(vchSecret); }
+    CIonSecret() {}
 };
 
 template <typename K, int Size, CChainParams::Base58Type Type>
-class CBitcoinExtKeyBase : public CBase58Data
+class CIonExtKeyBase : public CBase58Data
 {
 public:
     void SetKey(const K& key)
@@ -159,15 +159,15 @@ public:
         return ret;
     }
 
-    CBitcoinExtKeyBase(const K& key)
+    CIonExtKeyBase(const K& key)
     {
         SetKey(key);
     }
 
-    CBitcoinExtKeyBase() {}
+    CIonExtKeyBase() {}
 };
 
-typedef CBitcoinExtKeyBase<CExtKey, 74, CChainParams::EXT_SECRET_KEY> CBitcoinExtKey;
-typedef CBitcoinExtKeyBase<CExtPubKey, 74, CChainParams::EXT_PUBLIC_KEY> CBitcoinExtPubKey;
+typedef CIonExtKeyBase<CExtKey, 74, CChainParams::EXT_SECRET_KEY> CIonExtKey;
+typedef CIonExtKeyBase<CExtPubKey, 74, CChainParams::EXT_PUBLIC_KEY> CIonExtPubKey;
 
-#endif // BITCOIN_BASE58_H
+#endif // ION_BASE58_H

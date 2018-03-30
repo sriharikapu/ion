@@ -3,8 +3,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_STREAMS_H
-#define BITCOIN_STREAMS_H
+#ifndef ION_STREAMS_H
+#define ION_STREAMS_H
 
 #include "allocators.h"
 #include "serialize.h"
@@ -564,4 +564,4 @@ public:
     }
 };
 
-#endif // BITCOIN_STREAMS_H
+#endif // ION_STREAMS_H

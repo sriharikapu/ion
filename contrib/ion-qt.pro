@@ -167,10 +167,10 @@ HEADERS += src/activemasternode.h \
            src/qt/addressbookpage.h \
            src/qt/addresstablemodel.h \
            src/qt/askpassphrasedialog.h \
-           src/qt/bitcoinaddressvalidator.h \
-           src/qt/bitcoinamountfield.h \
-           src/qt/bitcoingui.h \
-           src/qt/bitcoinunits.h \
+           src/qt/ionaddressvalidator.h \
+           src/qt/ionamountfield.h \
+           src/qt/iongui.h \
+           src/qt/ionunits.h \
            src/qt/clientmodel.h \
            src/qt/coincontroldialog.h \
            src/qt/coincontroltreewidget.h \
@@ -215,7 +215,7 @@ HEADERS += src/activemasternode.h \
            src/qt/walletmodeltransaction.h \
            src/qt/walletview.h \
            src/qt/winshutdownmonitor.h \
-           src/script/bitcoinconsensus.h \
+           src/script/ionconsensus.h \
            src/script/interpreter.h \
            src/script/script.h \
            src/script/script_error.h \
@@ -329,9 +329,9 @@ HEADERS += src/activemasternode.h \
            src/leveldb/include/leveldb/table_builder.h \
            src/leveldb/include/leveldb/write_batch.h \
            src/leveldb/port/win/stdint.h \
-           src/secp256k1/src/java/org_bitcoin_NativeSecp256k1.h \
+           src/secp256k1/src/java/org_ion_NativeSecp256k1.h \
            src/crypto/aes_helper.c \
-           src/qt/bitcoinamountfield.moc \
+           src/qt/ionamountfield.moc \
            src/qt/ion.moc \
            src/qt/intro.moc \
            src/qt/overviewpage.moc \
@@ -461,10 +461,10 @@ SOURCES += src/activemasternode.cpp \
            src/qt/addressbookpage.cpp \
            src/qt/addresstablemodel.cpp \
            src/qt/askpassphrasedialog.cpp \
-           src/qt/bitcoinaddressvalidator.cpp \
-           src/qt/bitcoinamountfield.cpp \
-           src/qt/bitcoingui.cpp \
-           src/qt/bitcoinunits.cpp \
+           src/qt/ionaddressvalidator.cpp \
+           src/qt/ionamountfield.cpp \
+           src/qt/iongui.cpp \
+           src/qt/ionunits.cpp \
            src/qt/clientmodel.cpp \
            src/qt/coincontroldialog.cpp \
            src/qt/coincontroltreewidget.cpp \
@@ -508,7 +508,7 @@ SOURCES += src/activemasternode.cpp \
            src/qt/walletmodeltransaction.cpp \
            src/qt/walletview.cpp \
            src/qt/winshutdownmonitor.cpp \
-           src/script/bitcoinconsensus.cpp \
+           src/script/ionconsensus.cpp \
            src/script/interpreter.cpp \
            src/script/script.cpp \
            src/script/script_error.cpp \
@@ -639,7 +639,7 @@ SOURCES += src/activemasternode.cpp \
            src/leveldb/doc/bench/db_bench_tree_db.cc \
            src/leveldb/helpers/memenv/memenv.cc \
            src/leveldb/helpers/memenv/memenv_test.cc \
-           src/secp256k1/src/java/org_bitcoin_NativeSecp256k1.c
+           src/secp256k1/src/java/org_ion_NativeSecp256k1.c
 RESOURCES += src/qt/ion.qrc src/qt/ion_locale.qrc
 
 TRANSLATIONS += src/qt/locale/ion_bg.ts \

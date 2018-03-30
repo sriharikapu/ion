@@ -7,8 +7,8 @@
 #error This header can only be compiled as C++.
 #endif
 
-#ifndef BITCOIN_PROTOCOL_H
-#define BITCOIN_PROTOCOL_H
+#ifndef ION_PROTOCOL_H
+#define ION_PROTOCOL_H
 
 #include "netbase.h"
 #include "serialize.h"
@@ -73,13 +73,13 @@ enum {
     NODE_BLOOM = (1 << 2),
 
 	// NODE_BLOOM_WITHOUT_MN means the node has the same features as NODE_BLOOM with the only difference
-	// that the node doens't want to receive master nodes messages. (the 1<<3 was not picked as constant because on bitcoin 0.14 is witness and we want that update here )
+	// that the node doens't want to receive master nodes messages. (the 1<<3 was not picked as constant because on ion 0.14 is witness and we want that update here )
 
 	 NODE_BLOOM_WITHOUT_MN = (1 << 4),
 
     // Bits 24-31 are reserved for temporary experiments. Just pick a bit that
     // isn't getting used, or one not being used much, and notify the
-    // bitcoin-development mailing list. Remember that service bits are just
+    // ion-development mailing list. Remember that service bits are just
     // unauthenticated advertisements, so your code must be robust against
     // collisions and other cases where nodes may be advertising a service they
     // do not actually support. Other service bits should be allocated via the
@@ -173,4 +173,4 @@ enum {
     MSG_DSTX
 };
 
-#endif // BITCOIN_PROTOCOL_H
+#endif // ION_PROTOCOL_H

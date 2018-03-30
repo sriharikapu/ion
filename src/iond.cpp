@@ -84,7 +84,7 @@ bool AppInit(int argc, char* argv[])
             strUsage += "\n" + _("Usage:") + "\n" +
                         "  iond [options]                     " + _("Start Ion Core Daemon") + "\n";
 
-            strUsage += "\n" + HelpMessage(HMM_BITCOIND);
+            strUsage += "\n" + HelpMessage(HMM_IOND);
         }
 
         fprintf(stdout, "%s", strUsage.c_str());

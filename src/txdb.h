@@ -5,8 +5,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_TXDB_H
-#define BITCOIN_TXDB_H
+#ifndef ION_TXDB_H
+#define ION_TXDB_H
 
 #include "leveldbwrapper.h"
 #include "main.h"
@@ -91,4 +91,4 @@ public:
     bool EraseAccumulatorValue(const uint32_t& nChecksum);
 };
 
-#endif // BITCOIN_TXDB_H
+#endif // ION_TXDB_H

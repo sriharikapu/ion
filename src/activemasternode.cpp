@@ -407,7 +407,7 @@ bool CActiveMasternode::GetVinFromOutput(COutput out, CTxIn& vin, CPubKey& pubke
 
     CTxDestination address1;
     ExtractDestination(pubScript, address1);
-    CBitcoinAddress address2(address1);
+    CIonAddress address2(address1);
 
     CKeyID keyID;
     if (!address2.GetKeyID(keyID)) {

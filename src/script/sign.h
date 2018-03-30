@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_SCRIPT_SIGN_H
-#define BITCOIN_SCRIPT_SIGN_H
+#ifndef ION_SCRIPT_SIGN_H
+#define ION_SCRIPT_SIGN_H
 
 #include "script/interpreter.h"
 #include "key.h"
@@ -27,4 +27,4 @@ bool SignSignature(const CKeyStore& keystore, const CTransaction& txFrom, CMutab
  */
 CScript CombineSignatures(const CScript& scriptPubKey, const CTransaction& txTo, unsigned int nIn, const CScript& scriptSig1, const CScript& scriptSig2);
 
-#endif // BITCOIN_SCRIPT_SIGN_H
+#endif // ION_SCRIPT_SIGN_H

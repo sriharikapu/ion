@@ -2,8 +2,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_QT_GUIUTIL_H
-#define BITCOIN_QT_GUIUTIL_H
+#ifndef ION_QT_GUIUTIL_H
+#define ION_QT_GUIUTIL_H
 
 #include "amount.h"
 
@@ -39,7 +39,7 @@ QString dateTimeStr(const QDateTime& datetime);
 QString dateTimeStr(qint64 nTime);
 
 // Render Ion addresses in monospace font
-QFont bitcoinAddressFont();
+QFont ionAddressFont();
 
 // Set up widgets for address and amounts
 void setupAddressWidget(QValidatedLineEdit* widget, QWidget* parent);
@@ -244,4 +244,4 @@ typedef QProgressBar ProgressBar;
 
 } // namespace GUIUtil
 
-#endif // BITCOIN_QT_GUIUTIL_H
+#endif // ION_QT_GUIUTIL_H

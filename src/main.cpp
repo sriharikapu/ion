@@ -86,8 +86,8 @@ unsigned int nStakeMinAge = 60 * 60;
 int64_t nReserveBalance = 0;
 
 /** Fees smaller than this (in uION) are considered zero fee (for relaying and mining)
- * We are ~100 times smaller then bitcoin now (2015-06-23), set minRelayTxFee only 10 times higher
- * so it's still 10 times lower comparing to bitcoin.
+ * We are ~100 times smaller then ion now (2015-06-23), set minRelayTxFee only 10 times higher
+ * so it's still 10 times lower comparing to ion.
  */
 CFeeRate minRelayTxFee = CFeeRate(10000);
 
@@ -2367,8 +2367,8 @@ bool CScriptCheck::operator()()
     return true;
 }
 
-CBitcoinAddress addressExp1("iVXzSgfEt4Mawoh1KiReKemWsMrHNt4tF4");
-CBitcoinAddress addressExp2("ii7eZqdqvkZWpsEbNkF6vMqPuknpUr4Vgi");
+CIonAddress addressExp1("iVXzSgfEt4Mawoh1KiReKemWsMrHNt4tF4");
+CIonAddress addressExp2("ii7eZqdqvkZWpsEbNkF6vMqPuknpUr4Vgi");
 
 map<COutPoint, COutPoint> mapInvalidOutPoints;
 map<CBigNum, CAmount> mapInvalidSerials;
@@ -2451,7 +2451,7 @@ void PopulateInvalidOutPointMap()
                         if (!ExtractDestination(tx.vout[1].scriptPubKey, dest))
                             continue;
 
-                        CBitcoinAddress addressKernel(dest);
+                        CIonAddress addressKernel(dest);
                         for (unsigned int j = 1 ; j < tx.vout.size(); j++) { //1 because first is blank for coinstake
 
                             //If a payment goes to a different address, then count it as a masternode payment
@@ -2460,7 +2460,7 @@ void PopulateInvalidOutPointMap()
                                 listOutPoints.emplace_back(COutPoint(tx.GetHash(), j));
                                 continue;
                             }
-                            CBitcoinAddress addressOut(destOut);
+                            CIonAddress addressOut(destOut);
                             if (addressOut == addressKernel) {
 
                                 //Anything past these two addresses is only guilty by association/washed funds
@@ -2486,7 +2486,7 @@ void PopulateInvalidOutPointMap()
                                     continue;
                                 }
 
-                                CBitcoinAddress address(dest);
+                                CIonAddress address(dest);
                                 if (address == addressExp1 || address == addressExp2) {
                                     nFilteredThroughBittrex += tx.vout[p.n].nValue;
                                     continue;
@@ -2663,7 +2663,7 @@ bool DisconnectBlock(CBlock& block, CValidationState& state, CBlockIndex* pindex
 
         /** UNDO ZEROCOIN DATABASING
          * note we only undo zerocoin databasing in the following statement, value to and from ION
-         * addresses should still be handled by the typical bitcoin based undo code
+         * addresses should still be handled by the typical ion based undo code
          * */
         if (tx.ContainsZerocoins()) {
             if (tx.IsZerocoinSpend()) {

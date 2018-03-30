@@ -27,7 +27,7 @@ We released version 3.0.3 as the first stable version of the major upgrade to v3
 There were several considerations for selecting the current code base.
 
   - Stop ongoing attacks
-  - **Long term goal has been reached**: our source code has been updated to be more closely in line with bitcoin's code base.
+  - **Long term goal has been reached**: our source code has been updated to be more closely in line with ion's code base.
   - Improved stability of the core
   - Enhanced interface of the wallet
   - More regular (and secure) difficulaty algorithm (Dark Gravitiy Wave)
@@ -55,7 +55,7 @@ There were several issues which enabled several methods of attack. The current r
 ### Long term goals
 We reached several goals. Instead of pursuing these goals using the old code base, we adopted a new one.
 
- - Bring it to higher bitcoin source base
+ - Bring it to higher ion source base
  - Improve wallet performance
  - New design
  - Integrated blockexplorer
@@ -68,10 +68,10 @@ By doing so, we connect to an enthusiastic and active community - leaving behind
 
   1. [PIVX](https://github.com/PIVX-Project/PIVX)
   1. [DASH](https://github.com/dashpay/dash)
-  1. [Bitcoin](https://github.com/bitcoin/bitcoin)
+  1. [Bitcoin](https://github.com/ion/ion)
 
 
-More information at [ionomy.com](https://www.ionomy.com) Visit our ANN thread at [BitcoinTalk](https://bitcointalk.org/index.php?topic=1443633.7200)
+More information at [ionomy.com](https://www.ionomy.com) Visit our ANN thread at [BitcoinTalk](https://iontalk.org/index.php?topic=1443633.7200)
 
 ### Coin Specs
 <table>

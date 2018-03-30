@@ -377,7 +377,7 @@ Ange en lösenfras i den mellersta boxen. Tryck kryptera för att beräkna den k
     </message>
 </context>
 <context>
-    <name>BitcoinGUI</name>
+    <name>IonGUI</name>
     <message>
         <source>Wallet</source>
         <translation>Plånbok</translation>

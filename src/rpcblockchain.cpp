@@ -889,7 +889,7 @@ UniValue getinvalid (const UniValue& params, bool fHelp)
     CAmount nUnspent = 0;
     CAmount nMint = 0;
     CAmount nMixedValid = 0;
-    map<CBitcoinAddress, CAmount> mapBanAddress;
+    map<CIonAddress, CAmount> mapBanAddress;
     map<COutPoint, int> mapMixedValid;
 
     UniValue ret(UniValue::VARR);
@@ -950,7 +950,7 @@ UniValue getinvalid (const UniValue& params, bool fHelp)
             if (!ExtractDestination(scriptPubKey, dest)) {
                 continue;
             }
-            CBitcoinAddress address(dest);
+            CIonAddress address(dest);
             mapBanAddress[address] += nValue;
             nUnspent += nValue;
         }

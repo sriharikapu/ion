@@ -2,8 +2,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_QT_SENDCOINSENTRY_H
-#define BITCOIN_QT_SENDCOINSENTRY_H
+#ifndef ION_QT_SENDCOINSENTRY_H
+#define ION_QT_SENDCOINSENTRY_H
 
 #include "walletmodel.h"
 
@@ -17,7 +17,7 @@ class SendCoinsEntry;
 }
 
 /**
- * A single entry in the dialog for sending bitcoins.
+ * A single entry in the dialog for sending ions.
  * Stacked widget, with different UIs for payment requests
  * with a strong payee identity.
  */
@@ -68,4 +68,4 @@ private:
     bool updateLabel(const QString& address);
 };
 
-#endif // BITCOIN_QT_SENDCOINSENTRY_H
+#endif // ION_QT_SENDCOINSENTRY_H

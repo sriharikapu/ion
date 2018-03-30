@@ -4,7 +4,7 @@
 
 #include "walletframe.h"
 
-#include "bitcoingui.h"
+#include "iongui.h"
 #include "walletview.h"
 
 #include <cstdio>
@@ -12,7 +12,7 @@
 #include <QHBoxLayout>
 #include <QLabel>
 
-WalletFrame::WalletFrame(BitcoinGUI* _gui) : QFrame(_gui),
+WalletFrame::WalletFrame(IonGUI* _gui) : QFrame(_gui),
                                              gui(_gui)
 {
     // Leave HBox hook for adding a list view later
@@ -42,7 +42,7 @@ bool WalletFrame::addWallet(const QString& name, WalletModel* walletModel)
         return false;
 
     WalletView* walletView = new WalletView(this);
-    walletView->setBitcoinGUI(gui);
+    walletView->setIonGUI(gui);
     walletView->setClientModel(clientModel);
     walletView->setWalletModel(walletModel);
     walletView->showOutOfSyncWarning(bOutOfSync);

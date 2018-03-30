@@ -6,7 +6,7 @@
 
 #include "addressbookpage.h"
 #include "bip38tooldialog.h"
-#include "bitcoingui.h"
+#include "iongui.h"
 #include "blockexplorer.h"
 #include "clientmodel.h"
 #include "guiutil.h"
@@ -154,7 +154,7 @@ WalletView::~WalletView()
 {
 }
 
-void WalletView::setBitcoinGUI(BitcoinGUI* gui)
+void WalletView::setIonGUI(IonGUI* gui)
 {
     if (gui) {
         // Clicking on a transaction on the overview page simply sends you to transaction history page

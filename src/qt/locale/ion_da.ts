@@ -392,7 +392,7 @@
     </message>
 </context>
 <context>
-    <name>BitcoinGUI</name>
+    <name>IonGUI</name>
     <message>
         <source>Wallet</source>
         <translation>Tegnebog</translation>
@@ -4600,7 +4600,7 @@ For eksempel: alertnotify=Echo %% | mail - s "ION ALARM!" e-mail@administrator.d
     </message>
     <message>
         <source>RPC SSL options: (see the Bitcoin Wiki for SSL setup instructions)</source>
-        <translation>RPC SSL optioner: (se "the bitcoin Wiki" for opsætningsinstruktioner - på engelsk)</translation>
+        <translation>RPC SSL optioner: (se "the ion Wiki" for opsætningsinstruktioner - på engelsk)</translation>
     </message>
     <message>
         <source>RPC server options:</source>

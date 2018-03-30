@@ -124,7 +124,7 @@
     </message>
     </context>
 <context>
-    <name>BitcoinGUI</name>
+    <name>IonGUI</name>
     </context>
 <context>
     <name>BlockExplorer</name>

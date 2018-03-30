@@ -418,7 +418,7 @@ void CObfuscationPool::SetNull()
 
 bool CObfuscationPool::SetCollateralAddress(std::string strAddress)
 {
-    CBitcoinAddress address;
+    CIonAddress address;
     if (!address.SetString(strAddress)) {
         LogPrintf("CObfuscationPool::SetCollateralAddress - Invalid Obfuscation collateral address\n");
         return false;
@@ -2123,7 +2123,7 @@ bool CObfuScationSigner::IsVinAssociatedWithPubkey(CTxIn& vin, CPubKey& pubkey)
 
 bool CObfuScationSigner::SetKey(std::string strSecret, std::string& errorMessage, CKey& key, CPubKey& pubkey)
 {
-    CBitcoinSecret vchSecret;
+    CIonSecret vchSecret;
     bool fGood = vchSecret.SetString(strSecret);
 
     if (!fGood) {
@@ -2139,7 +2139,7 @@ bool CObfuScationSigner::SetKey(std::string strSecret, std::string& errorMessage
 
 bool CObfuScationSigner::GetKeysFromSecret(std::string strSecret, CKey& keyRet, CPubKey& pubkeyRet)
 {
-    CBitcoinSecret vchSecret;
+    CIonSecret vchSecret;
 
     if (!vchSecret.SetString(strSecret)) return false;
 

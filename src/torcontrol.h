@@ -5,8 +5,8 @@
 /**
  * Functionality for communicating with Tor.
  */
-#ifndef BITCOIN_TORCONTROL_H
-#define BITCOIN_TORCONTROL_H
+#ifndef ION_TORCONTROL_H
+#define ION_TORCONTROL_H
 
 #include <string>
 
@@ -21,4 +21,4 @@ void StartTorControl(boost::thread_group& threadGroup);
 void InterruptTorControl();
 void StopTorControl();
 
-#endif /* BITCOIN_TORCONTROL_H */
+#endif /* ION_TORCONTROL_H */

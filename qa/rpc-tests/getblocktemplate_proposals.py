@@ -6,7 +6,7 @@
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 from test_framework import BitcoinTestFramework
-from bitcoinrpc.authproxy import AuthServiceProxy, JSONRPCException
+from ionrpc.authproxy import AuthServiceProxy, JSONRPCException
 from util import *
 
 from binascii import a2b_hex, b2a_hex

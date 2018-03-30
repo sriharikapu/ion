@@ -5,8 +5,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_QT_BITCOINUNITS_H
-#define BITCOIN_QT_BITCOINUNITS_H
+#ifndef ION_QT_IONUNITS_H
+#define ION_QT_IONUNITS_H
 
 #include "amount.h"
 
@@ -55,7 +55,7 @@ public:
     explicit BitcoinUnits(QObject* parent);
 
     /** Ion units.
-      @note Source: https://en.bitcoin.it/wiki/Units . Please add only sensible ones
+      @note Source: https://en.ion.it/wiki/Units . Please add only sensible ones
      */
     enum Unit {
         ION,
@@ -131,4 +131,4 @@ private:
 };
 typedef BitcoinUnits::Unit BitcoinUnit;
 
-#endif // BITCOIN_QT_BITCOINUNITS_H
+#endif // ION_QT_IONUNITS_H

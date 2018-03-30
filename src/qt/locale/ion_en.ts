@@ -503,9 +503,9 @@
     </message>
 </context>
 <context>
-    <name>BitcoinGUI</name>
+    <name>IonGUI</name>
     <message>
-        <location filename="../bitcoingui.cpp" line="+127"/>
+        <location filename="../iongui.cpp" line="+127"/>
         <source>Wallet</source>
         <translation>Wallet</translation>
     </message>
@@ -3619,7 +3619,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../bitcoinunits.cpp" line="+252"/>
+        <location filename="../ionunits.cpp" line="+252"/>
         <source>Amount</source>
         <translation>Amount</translation>
     </message>
@@ -5849,7 +5849,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
 <context>
     <name>UnitDisplayStatusBarControl</name>
     <message>
-        <location filename="../bitcoingui.cpp" line="+102"/>
+        <location filename="../iongui.cpp" line="+102"/>
         <source>Unit to show amounts in. Click to select another unit.</source>
         <translation>Unit to show amounts in. Click to select another unit.</translation>
     </message>

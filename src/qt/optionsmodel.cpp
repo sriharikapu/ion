@@ -11,7 +11,7 @@
 
 #include "optionsmodel.h"
 
-#include "bitcoinunits.h"
+#include "ionunits.h"
 #include "guiutil.h"
 
 #include "amount.h"

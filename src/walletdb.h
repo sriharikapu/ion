@@ -5,8 +5,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_WALLETDB_H
-#define BITCOIN_WALLETDB_H
+#ifndef ION_WALLETDB_H
+#define ION_WALLETDB_H
 
 #include "amount.h"
 #include "db.h"
@@ -175,4 +175,4 @@ private:
 
 bool BackupWallet(const CWallet& wallet, const std::string& strDest);
 
-#endif // BITCOIN_WALLETDB_H
+#endif // ION_WALLETDB_H

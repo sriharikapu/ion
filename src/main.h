@@ -6,8 +6,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_MAIN_H
-#define BITCOIN_MAIN_H
+#ifndef ION_MAIN_H
+#define ION_MAIN_H
 
 #if defined(HAVE_CONFIG_H)
 #include "config/ion-config.h"
@@ -657,4 +657,4 @@ struct CBlockTemplate {
     std::vector<int64_t> vTxSigOps;
 };
 
-#endif // BITCOIN_MAIN_H
+#endif // ION_MAIN_H

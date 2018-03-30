@@ -19,18 +19,18 @@ fi
 RETVAL=0
 
 prog=iond
-# you can override the lockfile via BITCOIND_LOCKFILE in /etc/sysconfig/iond
-lockfile=${BITCOIND_LOCKFILE-/var/lock/subsys/iond}
+# you can override the lockfile via IOND_LOCKFILE in /etc/sysconfig/iond
+lockfile=${IOND_LOCKFILE-/var/lock/subsys/iond}
 
-# iond defaults to /usr/bin/iond, override with BITCOIND_BIN
-bitcoind=${BITCOIND_BIN-/usr/bin/iond}
+# iond defaults to /usr/bin/iond, override with IOND_BIN
+iond=${IOND_BIN-/usr/bin/iond}
 
-# iond opts default to -disablewallet, override with BITCOIND_OPTS
-bitcoind_opts=${BITCOIND_OPTS}
+# iond opts default to -disablewallet, override with IOND_OPTS
+iond_opts=${IOND_OPTS}
 
 start() {
     echo -n $"Starting $prog: "
-    daemon $DAEMONOPTS $bitcoind $bitcoind_opts
+    daemon $DAEMONOPTS $iond $iond_opts
     RETVAL=$?
     echo
     [ $RETVAL -eq 0 ] && touch $lockfile

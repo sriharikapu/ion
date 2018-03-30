@@ -22,7 +22,7 @@
 #include "utilmoneystr.h"
 #include "guiutil.h"
 #include "qvalidatedlineedit.h"
-#include "bitcoinamountfield.h"
+#include "ionamountfield.h"
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QHBoxLayout>
@@ -261,7 +261,7 @@ bool MultisigDialog::addMultisig(int m, vector<string> keys){
 
         ui->addMultisigStatus->setStyleSheet("QLabel { color: black; }");
         ui->addMultisigStatus->setText("Multisignature address " +
-                                       QString::fromStdString(CBitcoinAddress(innerID).ToString()) +
+                                       QString::fromStdString(CIonAddress(innerID).ToString()) +
                                        " has been added to the wallet.\nSend the redeem below for other owners to import:\n" +
                                        QString::fromStdString(redeem.ToString()));
     }catch(const runtime_error& e) {
@@ -318,7 +318,7 @@ void MultisigDialog::on_createButton_clicked()
             QWidget* dest = qobject_cast<QWidget*>(ui->destinationsList->itemAt(i)->widget());
             QValidatedLineEdit* addr = dest->findChild<QValidatedLineEdit*>("destinationAddress");
             BitcoinAmountField* amt = dest->findChild<BitcoinAmountField*>("destinationAmount");
-            CBitcoinAddress address;
+            CIonAddress address;
 
             bool validDest = true;
 
@@ -326,7 +326,7 @@ void MultisigDialog::on_createButton_clicked()
                 addr->setValid(false);
                 validDest = false;
             }else{
-                address = CBitcoinAddress(addr->text().toStdString());
+                address = CIonAddress(addr->text().toStdString());
             }
 
             if(!amt->validate()){
@@ -602,7 +602,7 @@ bool MultisigDialog::signMultisigTx(CMutableTransaction& tx, string& errorOut, Q
             for(int i = 0; i < keyList->count(); i++){
                 QWidget* keyFrame = qobject_cast<QWidget*>(keyList->itemAt(i)->widget());
                 QLineEdit* key = keyFrame->findChild<QLineEdit*>("key");
-                CBitcoinSecret vchSecret;
+                CIonSecret vchSecret;
                 if (!vchSecret.SetString(key->text().toStdString()))
                     throw runtime_error("Invalid private key");
                 CKey cKey = vchSecret.GetKey();
@@ -779,7 +779,7 @@ bool MultisigDialog::createRedeemScript(int m, vector<string> vKeys, CScript& re
             string keyString = *it;
 #ifdef ENABLE_WALLET
             // Case 1: Ion address and we have full public key:
-            CBitcoinAddress address(keyString);
+            CIonAddress address(keyString);
             if (pwalletMain && address.IsValid()) {
                 CKeyID keyID;
                 if (!address.GetKeyID(keyID)) {

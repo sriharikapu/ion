@@ -10,7 +10,7 @@
 
 #include "addresstablemodel.h"
 #include "askpassphrasedialog.h"
-#include "bitcoinunits.h"
+#include "ionunits.h"
 #include "clientmodel.h"
 #include "coincontroldialog.h"
 #include "guiutil.h"
@@ -225,7 +225,7 @@ void SendCoinsDialog::on_sendButton_clicked()
         SendCoinsEntry* entry = qobject_cast<SendCoinsEntry*>(ui->entries->itemAt(i)->widget());
 
         //UTXO splitter - address should be our own
-        CBitcoinAddress address = entry->getValue().address.toStdString();
+        CIonAddress address = entry->getValue().address.toStdString();
         if (!model->isMine(address) && ui->splitBlockCheckBox->checkState() == Qt::Checked) {
             CoinControlDialog::coinControl->fSplitBlock = false;
             ui->splitBlockCheckBox->setCheckState(Qt::Unchecked);
@@ -877,7 +877,7 @@ void SendCoinsDialog::coinControlChangeEdited(const QString& text)
         CoinControlDialog::coinControl->destChange = CNoDestination();
         ui->labelCoinControlChangeLabel->setStyleSheet("QLabel{color:red;}");
 
-        CBitcoinAddress addr = CBitcoinAddress(text.toStdString());
+        CIonAddress addr = CIonAddress(text.toStdString());
 
         if (text.isEmpty()) // Nothing entered
         {

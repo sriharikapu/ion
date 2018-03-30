@@ -280,7 +280,7 @@
     </message>
     </context>
 <context>
-    <name>BitcoinGUI</name>
+    <name>IonGUI</name>
     <message>
         <source>Unlock wallet</source>
         <translation>Отключване на портфейла</translation>

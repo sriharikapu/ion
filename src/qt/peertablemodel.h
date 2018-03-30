@@ -2,8 +2,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_QT_PEERTABLEMODEL_H
-#define BITCOIN_QT_PEERTABLEMODEL_H
+#ifndef ION_QT_PEERTABLEMODEL_H
+#define ION_QT_PEERTABLEMODEL_H
 
 #include "main.h"
 #include "net.h"
@@ -77,4 +77,4 @@ private:
     QTimer* timer;
 };
 
-#endif // BITCOIN_QT_PEERTABLEMODEL_H
+#endif // ION_QT_PEERTABLEMODEL_H
