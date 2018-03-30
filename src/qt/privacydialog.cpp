@@ -108,14 +108,8 @@ PrivacyDialog::PrivacyDialog(QWidget* parent) : QDialog(parent),
     ui->WarningLabel->hide();    // Explanatory text visible in QT-Creator
     ui->dummyHideWidget->hide(); // Dummy widget with elements to hide
 
-    //temporary disable for maintenance
-    if(GetAdjustedTime() > GetSporkValue(SPORK_9_ZEROCOIN_MAINTENANCE_MODE)) {
-        ui->pushButtonMintxION->setEnabled(false);
-        ui->pushButtonMintxION->setToolTip(tr("xION is currently disabled due to maintenance."));
-
-        ui->pushButtonSpendxION->setEnabled(false);
-        ui->pushButtonSpendxION->setToolTip(tr("xION is currently disabled due to maintenance."));
-    }
+    // Set labels/buttons depending on SPORK_16 status
+    updateSPORK16Status();
 }
 
 PrivacyDialog::~PrivacyDialog()
@@ -695,6 +689,9 @@ void PrivacyDialog::setBalance(const CAmount& balance, const CAmount& unconfirme
     // Display AutoMint status
     updateAutomintStatus();
 
+    // Update/enable labels and buttons depending on the current SPORK_16 status
+    updateSPORK16Status();
+
     // Display global supply
     ui->labelZsupplyAmount->setText(QString::number(chainActive.Tip()->GetZerocoinSupply()/COIN) + QString(" <b>xION </b> "));
     for (auto denom : libzerocoin::zerocoinDenomList) {
@@ -772,4 +769,27 @@ void PrivacyDialog::updateAutomintStatus()
 
     strAutomintStatus += tr(" Configured target percentage: <b>") + QString::number(pwalletMain->getZeromintPercentage()) + "%</b>";
     ui->label_AutoMintStatus->setText(strAutomintStatus);
+}
+
+void PrivacyDialog::updateSPORK16Status()
+{
+    // Update/enable labels, buttons and tooltips depending on the current SPORK_16 status
+    if(GetAdjustedTime() > GetSporkValue(SPORK_9_ZEROCOIN_MAINTENANCE_MODE)) {
+        // Mint xION
+        ui->pushButtonMintxION->setEnabled(false);
+        ui->pushButtonMintxION->setToolTip(tr("xION is currently disabled due to maintenance."));
+
+        // Spend xION
+        ui->pushButtonSpendxION->setEnabled(false);
+        ui->pushButtonSpendxION->setToolTip(tr("xION is currently disabled due to maintenance."));
+    }
+    else {
+        // Mint xION
+        ui->pushButtonMintxION->setEnabled(true);
+        ui->pushButtonMintxION->setToolTip(tr("PrivacyDialog", "Enter an amount of Ion to convert to xION", 0));
+
+        // Spend xION
+        ui->pushButtonSpendxION->setEnabled(true);
+        ui->pushButtonSpendxION->setToolTip(tr("Spend Zerocoin. Without 'Pay To:' address creates payments to yourself."));
+    }
 }
