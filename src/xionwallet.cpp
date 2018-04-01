@@ -26,7 +26,7 @@ CxIONWallet::CxIONWallet(std::string strWalletFile, bool fFirstRun)
         seed = CBigNum::randBignum(CBigNum(~uint256(0))).getuint256();
 
     SetMasterSeed(seed);
-    this->mintPool = CMintPool(nCount);
+    this->mintPool = CMintPool(nCountLastUsed);
 }
 
 bool CxIONWallet::SetMasterSeed(const uint256& seedMaster, bool fResetCount)
@@ -37,11 +37,11 @@ bool CxIONWallet::SetMasterSeed(const uint256& seedMaster, bool fResetCount)
     if (!walletdb.WriteXIONSeed(seedMaster))
         return false;
 
-    nCount = 0;
+    nCountLastUsed = 0;
     if (fResetCount)
-        walletdb.WriteXIONCount(nCount);
-    else if (!walletdb.ReadXIONCount(nCount))
-        nCount = 0;
+        walletdb.WriteXIONCount(nCountLastUsed);
+    else if (!walletdb.ReadXIONCount(nCountLastUsed))
+        nCountLastUsed = 0;
 
     //todo fix to sync with count above
     mintPool.Reset();
@@ -52,7 +52,7 @@ bool CxIONWallet::SetMasterSeed(const uint256& seedMaster, bool fResetCount)
 //Add the next 10 mints to the mint pool
 void CxIONWallet::GenerateMintPool(int nCountStart, int nCountEnd)
 {
-    int n = std::max(mintPool.CountOfLastGenerated() + 1, nCount);
+    int n = nCountLastUsed + 1;
     if (nCountStart > 0)
         n = nCountStart;
 
@@ -199,8 +199,8 @@ void CxIONWallet::SyncWithChain(bool fGenerateMintPool)
 
                 SetMintSeen(bnValue, nHeight, txHash, denomination);
                 nLastCountUsed = std::max(pMint.second, nLastCountUsed);
-                nCount = std::max(nLastCountUsed + 1, nCount);
-                LogPrint("zero", "%s: updated count to %d\n", __func__, nCount);
+                nCountLastUsed = std::max(nLastCountUsed, nCountLastUsed);
+                LogPrint("zero", "%s: updated count to %d\n", __func__, nCountLastUsed);
             }
         }
     }
@@ -272,10 +272,10 @@ bool CxIONWallet::SetMintSeen(const CBigNum& bnValue, const int& nHeight, const 
     pwalletMain->xionTracker->Add(dMint, true);
 
     //Update the count if it is less than the mint's count
-    if (nCount <= pMint.second) {
+    if (nCountLastUsed < pMint.second) {
         CWalletDB walletdb(strWalletFile);
-        nCount = pMint.second + 1;
-        walletdb.WriteXIONCount(nCount);
+        nCountLastUsed = pMint.second;
+        walletdb.WriteXIONCount(nCountLastUsed);
     }
 
     //remove from the pool
@@ -341,7 +341,7 @@ void CxIONWallet::SeedToXION(const uint512& seedZerocoin, CBigNum& bnSerial, CBi
 
 uint512 CxIONWallet::GetNextZerocoinSeed()
 {
-    return GetZerocoinSeed(nCount);
+    return GetZerocoinSeed(nCountLastUsed + 1);
 }
 
 uint512 CxIONWallet::GetZerocoinSeed(uint32_t n)
@@ -354,14 +354,14 @@ uint512 CxIONWallet::GetZerocoinSeed(uint32_t n)
 
 void CxIONWallet::UpdateCount()
 {
-    nCount++;
+    nCountLastUsed++;
     CWalletDB walletdb(strWalletFile);
-    walletdb.WriteXIONCount(nCount);
+    walletdb.WriteXIONCount(nCountLastUsed);
 }
 
 void CxIONWallet::GenerateDeterministicXION(CoinDenomination denom, PrivateCoin& coin, CDeterministicMint& dMint, bool fGenerateOnly)
 {
-    GenerateMint(nCount, denom, coin, dMint);
+    GenerateMint(nCountLastUsed + 1, denom, coin, dMint);
     if (fGenerateOnly)
         return;
 
