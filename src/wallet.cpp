@@ -1587,7 +1587,7 @@ CAmount CWallet::GetZerocoinBalance(bool fMatureOnly) const
         CAmount nBalance = 0;
         vector<CMintMeta> vMints = xionTracker->GetMints(true);
         for (auto meta : vMints) {
-            if (meta.nHeight >= mapMintMaturity.at(meta.denom))
+            if (meta.nHeight >= mapMintMaturity.at(meta.denom) || meta.nHeight >= chainActive.Height() || meta.nHeight == 0)
                 continue;
             nBalance += libzerocoin::ZerocoinDenominationToAmount(meta.denom);
         }
