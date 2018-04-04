@@ -191,7 +191,7 @@ void CxIONWallet::SyncWithChain(bool fGenerateMintPool)
                     break;
                 }
 
-                CBlockIndex* pindex;
+                CBlockIndex* pindex = nullptr;
                 if (mapBlockIndex.count(hashBlock))
                     pindex = mapBlockIndex.at(hashBlock);
 
