@@ -63,7 +63,7 @@ static const Checkpoints::CCheckpointData data = {
     1522095098, // * UNIX timestamp of last checkpoint block
     1469475,    // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
-    2000        // * estimated number of transactions per day after checkpoint
+    3000        // * estimated number of transactions per day after checkpoint
 };
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
@@ -77,13 +77,16 @@ static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
 	(   75000,      uint256("20faec3994dac57fb88748e29139974522c91036e1bf8ff204c769a90fab5a12") ) // Fork June 2017
 	(   85000,      uint256("43ee28cd1f804dafe05ef120569726e50e9e6f2b634746925742cbd9f738c201") ) // Fork June 2017
 	(   88800,      uint256("2807b46cbfa28a2d4854215b40f4db64b62fc71a1d010844d67d7c03888ce692") ) // Fork June 2017
-    (  331099,      uint256("1ba565ae5336eeb1cbdc4c8804f229f685391d6b9a8568f7baf5c70b80bed17e") );// Fork March 2018 tx=662779 time=1513532336
+    (  331099,      uint256("1ba565ae5336eeb1cbdc4c8804f229f685391d6b9a8568f7baf5c70b80bed17e") ) // Fork April 2018 tx=662779 time=1513532336
+    (  331100,      uint256("ffa0eaa61e9b2291dd497338235d071b0e9eb71d4fda723ce778f52b38e349fe") ) // Fork April 2018 tx=662781 time=1522874749
+    (  331110,      uint256("870c94e56975fe1b2511b65ca435401d8112796bda228deece2bb852ee02b197") ) // Fork April 2018 tx=662801 time=1522880408
+    (  331117,      uint256("616721655f4217e57ca4ad0031b1e8080380959ac10ee30000af7687603f1b7b") );// Fork April 2018 tx=662817 time=1522882828
 
 static const Checkpoints::CCheckpointData dataTestnet = {
     &mapCheckpointsTestnet,
-    1513532336,
-    662779,
-    2000};
+    1522882828,
+    662817,
+    2880};
 
 static Checkpoints::MapCheckpoints mapCheckpointsRegtest =
     boost::assign::map_list_of(0, uint256("0x671d0510c128608897d98d1819d26b40810c8b7e4901447a909c87a9edc2f5ec"));
