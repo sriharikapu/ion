@@ -413,7 +413,7 @@ void PrivacyDialog::sendxION()
     // use mints from xION selector if applicable
     vector<CMintMeta> vMintsToFetch;
     vector<CZerocoinMint> vMintsSelected;
-    if (!XIONControlDialog::listSelectedMints.empty()) {
+    if (!XIONControlDialog::setSelectedMints.empty()) {
         vMintsToFetch = XIONControlDialog::GetSelectedMints();
 
         for (auto& meta : vMintsToFetch) {
@@ -470,7 +470,7 @@ void PrivacyDialog::sendxION()
     }
 
     // Clear xion selector in case it was used
-    XIONControlDialog::listSelectedMints.clear();
+    XIONControlDialog::setSelectedMints.clear();
     ui->labelxIONSelected_int->setText(QString("0"));
     ui->labelQuantitySelected_int->setText(QString("0"));
 

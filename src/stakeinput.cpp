@@ -157,15 +157,15 @@ bool CXIonStake::GetTxFrom(CTransaction& tx)
     return false;
 }
 
-bool CXIonStake::MarkSpent(CWallet *pwallet)
+bool CXIonStake::MarkSpent(CWallet *pwallet, const uint256& txid)
 {
     CxIONTracker* xionTracker = pwallet->xionTracker;
     CMintMeta meta;
     if (!xionTracker->GetMetaFromStakeHash(hashSerial, meta))
         return error("%s: tracker does not have serialhash", __func__);
-    meta.isUsed = true;
 
-    return xionTracker->UpdateState(meta);
+    xionTracker->SetPubcoinUsed(meta.hashPubcoin, txid);
+    return true;
 }
 
 //!ION Stake
