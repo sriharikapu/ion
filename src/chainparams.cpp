@@ -79,13 +79,12 @@ static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
 	(   88800,      uint256("2807b46cbfa28a2d4854215b40f4db64b62fc71a1d010844d67d7c03888ce692") ) // Fork June 2017
     (  331099,      uint256("1ba565ae5336eeb1cbdc4c8804f229f685391d6b9a8568f7baf5c70b80bed17e") ) // Fork April 2018 tx=662779 time=1513532336
     (  331100,      uint256("ffa0eaa61e9b2291dd497338235d071b0e9eb71d4fda723ce778f52b38e349fe") ) // Fork April 2018 tx=662781 time=1522874749
-    (  331110,      uint256("870c94e56975fe1b2511b65ca435401d8112796bda228deece2bb852ee02b197") ) // Fork April 2018 tx=662801 time=1522880408
-    (  331117,      uint256("616721655f4217e57ca4ad0031b1e8080380959ac10ee30000af7687603f1b7b") );// Fork April 2018 tx=662817 time=1522882828
+    (  331110,      uint256("870c94e56975fe1b2511b65ca435401d8112796bda228deece2bb852ee02b197") ); // Fork April 2018 tx=662801 time=1522880408
 
 static const Checkpoints::CCheckpointData dataTestnet = {
     &mapCheckpointsTestnet,
-    1522882828,
-    662817,
+    1522880408,
+    662801,
     2880};
 
 static Checkpoints::MapCheckpoints mapCheckpointsRegtest =
