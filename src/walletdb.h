@@ -178,7 +178,9 @@ public:
     bool ReadCurrentSeedHash(uint256& hashSeed);
     bool WriteXIONSeed(const uint256& hashSeed, const vector<unsigned char>& seed);
     bool ReadXIONSeed(const uint256& hashSeed, vector<unsigned char>& seed);
+    bool ReadXIONSeed_deprecated(uint256& seed);
     bool EraseXIONSeed();
+    bool EraseXIONSeed_deprecated();
 
     bool WriteXIONCount(const uint32_t& nCount);
     bool ReadXIONCount(uint32_t& nCount);
