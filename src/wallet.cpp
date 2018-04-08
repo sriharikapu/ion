@@ -4743,6 +4743,7 @@ bool CWallet::CreateZerocoinSpendTransaction(CAmount nValue, int nSecurityLevel,
     for (const auto& mint : vSelectedMints) {
         if (mint.GetVersion() < libzerocoin::PrivateCoin::PUBKEY_VERSION) {
             if (nSecurityLevel < 100) {
+                nStatus = XION_SPEND_V1_SEC_LEVEL;
                 receipt.SetStatus(_("Version 1 xION require a security level of 100 to successfully spend."), nStatus);
                 return false;
             }

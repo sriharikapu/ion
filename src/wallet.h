@@ -105,7 +105,8 @@ enum ZerocoinSpendStatus {
     XION_INVALID_WITNESS = 12,                      // Spend coin transaction did not verify
     XION_BAD_SERIALIZATION = 13,                    // Transaction verification failed
     XION_SPENT_USED_XION = 14,                      // Coin has already been spend
-    XION_TX_TOO_LARGE = 15                          // The transaction is larger than the max tx size
+    XION_TX_TOO_LARGE = 15,                          // The transaction is larger than the max tx size
+    XION_SPEND_V1_SEC_LEVEL                         // Spend is V1 and security level is not set to 100
 };
 
 struct CompactTallyItem {
