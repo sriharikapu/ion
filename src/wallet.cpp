@@ -4971,7 +4971,7 @@ void CWallet::ReconsiderZerocoins(std::list<CZerocoinMint>& listMintsRestored, s
         mint.SetHeight(nHeight);
         mint.SetUsed(IsSerialInBlockchain(mint.GetValue(), nHeight));
 
-        if (!xionTracker->UnArchive(hashPubcoin)) {
+        if (!xionTracker->UnArchive(hashPubcoin, false)) {
             LogPrintf("%s : failed to unarchive mint %s\n", __func__, mint.GetValue().GetHex());
         } else {
             xionTracker->UpdateZerocoinMint(mint);
@@ -4989,7 +4989,7 @@ void CWallet::ReconsiderZerocoins(std::list<CZerocoinMint>& listMintsRestored, s
         dMint.SetHeight(nHeight);
         dMint.SetUsed(IsSerialInBlockchain(dMint.GetSerialHash(), nHeight));
 
-        if (!xionTracker->UnArchive(dMint.GetPubcoinHash())) {
+        if (!xionTracker->UnArchive(dMint.GetPubcoinHash(), true)) {
             LogPrintf("%s : failed to unarchive deterministic mint %s\n", __func__, dMint.GetPubcoinHash().GetHex());
         } else {
             xionTracker->Add(dMint, true);
