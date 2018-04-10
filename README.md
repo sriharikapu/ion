@@ -75,7 +75,7 @@ More information at [ionomy.com](https://www.ionomy.com) Visit our ANN thread at
 
 ### Coin Specs
 <table>
-<tr><td>Algorithm</td><td>Quark</td></tr>
+<tr><td>Algorithm</td><td>[SHA-256](https://en.bitcoin.it/wiki/SHA-256) (QUARK for hashing spork messages)</td></tr>
 <tr><td>Retargeting Algorithm</td><td>DGW</td></tr>
 <tr><td>Block Time</td><td>60 Seconds</td></tr>
 <tr><td>Difficulty Retargeting</td><td>Every Block</td></tr>
