@@ -803,7 +803,7 @@ void PrivacyDialog::updateSPORK16Status()
     else {
         // Mint xION
         ui->pushButtonMintxION->setEnabled(true);
-        ui->pushButtonMintxION->setToolTip(tr("PrivacyDialog", "Enter an amount of Ion to convert to xION", 0));
+        ui->pushButtonMintxION->setToolTip(tr("PrivacyDialog", "Enter an amount of ION to convert to xION", 0));
 
         // Spend xION
         ui->pushButtonSpendxION->setEnabled(true);

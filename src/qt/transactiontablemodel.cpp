@@ -358,11 +358,11 @@ QString TransactionTableModel::formatTxType(const TransactionRecord* wtx) const
     case TransactionRecord::Obfuscated:
         return tr("Obfuscated");
     case TransactionRecord::ZerocoinMint:
-        return tr("Converted Ion to xION");
+        return tr("Converted ION to xION");
     case TransactionRecord::ZerocoinSpend:
         return tr("Spent xION");
     case TransactionRecord::RecvFromZerocoinSpend:
-        return tr("Received Ion from xION");
+        return tr("Received ION from xION");
     case TransactionRecord::ZerocoinSpend_Change_xION:
         return tr("Minted Change as xION from xION Spend");
     case TransactionRecord::ZerocoinSpend_FromMe:

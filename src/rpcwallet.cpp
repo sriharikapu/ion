@@ -3326,7 +3326,7 @@ UniValue getxionseed(const UniValue& params, bool fHelp)
             HelpRequiringPassphrase() + "\n"
 
             "\nResult\n"
-            "\"seed\" : s,  (string) The deterministic xion seed.\n"
+            "\"seed\" : s,  (string) The deterministic xION seed.\n"
 
             "\nExamples\n" +
             HelpExampleCli("getxionseed", "") + HelpExampleRpc("getxionseed", ""));
