@@ -164,6 +164,12 @@ void CxIONWallet::RemoveMintsFromPool(const std::vector<uint256>& vPubcoinHashes
         mintPool.Remove(hash);
 }
 
+void CxIONWallet::GetState(int& nCount, int& nLastGenerated)
+{
+    nCount = this->nCountLastUsed + 1;
+    nLastGenerated = mintPool.CountOfLastGenerated();
+}
+
 //Catch the counter up with the chain
 map<uint256, uint32_t> mapMissingMints;
 void CxIONWallet::SyncWithChain(bool fGenerateMintPool)

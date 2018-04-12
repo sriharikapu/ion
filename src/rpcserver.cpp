@@ -449,7 +449,8 @@ static const CRPCCommand vRPCCommands[] =
         {"zerocoin", "getxionseed", &getxionseed, false, false, true},
         {"zerocoin", "setxionseed", &setxionseed, false, false, true},
         {"zerocoin", "generatemintlist", &generatemintlist, false, false, true},
-        {"zerocoin", "searchdxion", &searchdxion, false, false, true}
+        {"zerocoin", "searchdxion", &searchdxion, false, false, true},
+        {"zerocoin", "dxionstate", &dxionstate, false, false, true}
 
 #endif // ENABLE_WALLET
 };
