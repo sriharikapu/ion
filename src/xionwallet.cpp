@@ -172,7 +172,6 @@ void CxIONWallet::GetState(int& nCount, int& nLastGenerated)
 }
 
 //Catch the counter up with the chain
-map<uint256, uint32_t> mapMissingMints;
 void CxIONWallet::SyncWithChain(bool fGenerateMintPool)
 {
     uint32_t nLastCountUsed = 0;

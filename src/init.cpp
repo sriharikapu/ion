@@ -1618,6 +1618,7 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
         nStart = GetTimeMillis();
         bool fFirstRun = true;
         pwalletMain = new CWallet(strWalletFile);
+        zwalletMain = new CxIONWallet(pwalletMain->strWalletFile);
         DBErrors nLoadWalletRet = pwalletMain->LoadWallet(fFirstRun);
         if (nLoadWalletRet != DB_LOAD_OK) {
             if (nLoadWalletRet == DB_CORRUPT)
@@ -1712,7 +1713,6 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
         fVerifyingBlocks = false;
 
         //Inititalize xIONWallet
-        zwalletMain = new CxIONWallet(pwalletMain->strWalletFile);
         uiInterface.InitMessage(_("Syncing xION wallet..."));
 
         pwalletMain->setZWallet(zwalletMain);
