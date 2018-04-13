@@ -40,7 +40,7 @@ public:
 
 private:
     uint512 GetZerocoinSeed(uint32_t n);
-    void SeedToXION(const uint512& seed, CBigNum& bnSerial, CBigNum& bnRandomness, CKey& key);
+    void SeedToXION(const uint512& seed, CBigNum& bnValue, CBigNum& bnSerial, CBigNum& bnRandomness, CKey& key);
 };
 
 #endif //ION_XIONWALLET_H
