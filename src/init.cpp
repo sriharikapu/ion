@@ -1618,7 +1618,6 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
         nStart = GetTimeMillis();
         bool fFirstRun = true;
         pwalletMain = new CWallet(strWalletFile);
-        zwalletMain = new CxIONWallet(pwalletMain->strWalletFile);
         DBErrors nLoadWalletRet = pwalletMain->LoadWallet(fFirstRun);
         if (nLoadWalletRet != DB_LOAD_OK) {
             if (nLoadWalletRet == DB_CORRUPT)
@@ -1667,6 +1666,8 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
 
         LogPrintf("%s", strErrors.str());
         LogPrintf(" wallet      %15dms\n", GetTimeMillis() - nStart);
+        zwalletMain = new CxIONWallet(pwalletMain->strWalletFile);
+        pwalletMain->setZWallet(zwalletMain);
 
         RegisterValidationInterface(pwalletMain);
 
@@ -1715,14 +1716,12 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
         //Inititalize xIONWallet
         uiInterface.InitMessage(_("Syncing xION wallet..."));
 
-        pwalletMain->setZWallet(zwalletMain);
         bool fEnableXIONBackups = GetBoolArg("-backupxion", true);
         pwalletMain->setXIONAutoBackups(fEnableXIONBackups);
 
         //Load zerocoin mint hashes to memory
         pwalletMain->xionTracker->Init();
         zwalletMain->LoadMintPoolFromDB();
-        //zwalletMain->RemoveMintsFromPool(pwalletMain->xionTracker->GetSerialHashes());
         zwalletMain->SyncWithChain();
     }  // (!fDisableWallet)
 #else  // ENABLE_WALLET
