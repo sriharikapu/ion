@@ -23,6 +23,8 @@ private:
 
 public:
     CxIONWallet(std::string strWalletFile);
+
+    void AddToMintPool(const std::pair<uint256, uint32_t>& pMint);
     bool SetMasterSeed(const uint256& seedMaster, bool fResetCount = false);
     uint256 GetMasterSeed() { return seedMaster; }
     void SyncWithChain(bool fGenerateMintPool = true);
@@ -37,10 +39,10 @@ public:
     bool IsInMintPool(const CBigNum& bnValue) { return mintPool.Has(bnValue); }
     void UpdateCount();
     void Lock();
+    void SeedToXION(const uint512& seed, CBigNum& bnValue, CBigNum& bnSerial, CBigNum& bnRandomness, CKey& key);
 
 private:
     uint512 GetZerocoinSeed(uint32_t n);
-    void SeedToXION(const uint512& seed, CBigNum& bnValue, CBigNum& bnSerial, CBigNum& bnRandomness, CKey& key);
 };
 
 #endif //ION_XIONWALLET_H

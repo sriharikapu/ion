@@ -140,6 +140,7 @@ static const CRPCConvertParam vRPCConvertParams[] =
         {"generatemintlist", 1},
         {"searchdxion", 0},
         {"searchdxion", 1},
+        {"searchdxion", 2},
         {"getfeeinfo", 0}
     };
 
