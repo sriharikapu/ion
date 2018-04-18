@@ -242,7 +242,7 @@ public:
     bool fWalletUnlockAnonymizeOnly;
     std::string strWalletFile;
     bool fBackupMints;
-    CxIONTracker* xionTracker;
+    std::unique_ptr<CxIONTracker> xionTracker;
 
     std::set<int64_t> setKeyPool;
     std::map<CKeyID, CKeyMetadata> mapKeyMetadata;
@@ -330,7 +330,7 @@ public:
     void setZWallet(CxIONWallet* zwallet)
     {
         zwalletMain = zwallet;
-        xionTracker = new CxIONTracker(strWalletFile);
+        xionTracker = std::unique_ptr<CxIONTracker>(new CxIONTracker(strWalletFile));
     }
 
     CxIONWallet* getZWallet() { return zwalletMain; }

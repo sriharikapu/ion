@@ -28,8 +28,7 @@ BOOST_AUTO_TEST_CASE(zerocoin_spend_test)
 
     bool fFirstRun;
     cWallet.LoadWallet(fFirstRun);
-    CxIONTracker tracker(cWallet.strWalletFile);
-    cWallet.xionTracker = &tracker;
+    cWallet.xionTracker = unique_ptr<CxIONTracker>(new CxIONTracker(cWallet.strWalletFile));
     CMutableTransaction tx;
     CWalletTx* wtx = new CWalletTx(&cWallet, tx);
     bool fMintChange=true;

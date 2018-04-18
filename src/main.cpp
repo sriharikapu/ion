@@ -4528,7 +4528,7 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CBlockIndex** ppindex, 
 
     if (block.IsProofOfStake()) {
         uint256 hashProofOfStake = 0;
-        CStakeInput* stake = nullptr;
+        unique_ptr<CStakeInput> stake;
 
         if (!CheckProofOfStake(block, hashProofOfStake, stake))
             return state.DoS(100, error("%s: proof of stake check failed", __func__));
@@ -4536,7 +4536,7 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CBlockIndex** ppindex, 
         if (!stake)
             return error("%s: null stake ptr", __func__);
 
-        if (stake->IsXION() && !ContextualCheckZerocoinStake(stake))
+        if (stake->IsXION() && !ContextualCheckZerocoinStake(stake.get()))
             return state.DoS(100, error("%s: staked xION fails context checks", __func__));
 
         uint256 hash = block.GetHash();

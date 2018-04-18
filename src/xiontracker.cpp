@@ -12,7 +12,14 @@ CxIONTracker::CxIONTracker(std::string strWalletFile)
 {
     this->strWalletFile = strWalletFile;
     mapSerialHashes.clear();
+    mapPendingSpends.clear();
     fInitialized = false;
+}
+
+CxIONTracker::~CxIONTracker()
+{
+    mapSerialHashes.clear();
+    mapPendingSpends.clear();
 }
 
 void CxIONTracker::Init()

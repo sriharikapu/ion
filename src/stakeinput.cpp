@@ -159,7 +159,7 @@ bool CXIonStake::GetTxFrom(CTransaction& tx)
 
 bool CXIonStake::MarkSpent(CWallet *pwallet, const uint256& txid)
 {
-    CxIONTracker* xionTracker = pwallet->xionTracker;
+    CxIONTracker* xionTracker = pwallet->xionTracker.get();
     CMintMeta meta;
     if (!xionTracker->GetMetaFromStakeHash(hashSerial, meta))
         return error("%s: tracker does not have serialhash", __func__);

@@ -2924,7 +2924,7 @@ UniValue resetmintzerocoin(const UniValue& params, bool fHelp)
     LOCK2(cs_main, pwalletMain->cs_wallet);
 
     CWalletDB walletdb(pwalletMain->strWalletFile);
-    CxIONTracker* xionTracker = pwalletMain->xionTracker;
+    CxIONTracker* xionTracker = pwalletMain->xionTracker.get();
     set<CMintMeta> setMints = xionTracker->ListMints(false, false, true);
     vector<CMintMeta> vMintsToFind(setMints.begin(), setMints.end());
     vector<CMintMeta> vMintsMissing;
@@ -2977,7 +2977,7 @@ UniValue resetspentzerocoin(const UniValue& params, bool fHelp)
     LOCK2(cs_main, pwalletMain->cs_wallet);
 
     CWalletDB walletdb(pwalletMain->strWalletFile);
-    CxIONTracker* xionTracker = pwalletMain->xionTracker;
+    CxIONTracker* xionTracker = pwalletMain->xionTracker.get();
     set<CMintMeta> setMints = xionTracker->ListMints(false, false, false);
     list<CZerocoinSpend> listSpends = walletdb.ListSpentCoins();
     list<CZerocoinSpend> listUnconfirmedSpends;
@@ -3114,7 +3114,7 @@ UniValue exportzerocoins(const UniValue& params, bool fHelp)
     if (params.size() == 2)
         denomination = libzerocoin::IntToZerocoinDenomination(params[1].get_int());
 
-    CxIONTracker* xionTracker = pwalletMain->xionTracker;
+    CxIONTracker* xionTracker = pwalletMain->xionTracker.get();
     set<CMintMeta> setMints = xionTracker->ListMints(!fIncludeSpent, false, false);
 
     UniValue jsonList(UniValue::VARR);
@@ -3489,8 +3489,7 @@ UniValue searchdxion(const UniValue& params, bool fHelp)
 
     dxionThreads->join_all();
 
-    CxIONTracker* tracker = pwalletMain->xionTracker;
-    zwallet->RemoveMintsFromPool(tracker->GetSerialHashes());
+    zwallet->RemoveMintsFromPool(pwalletMain->xionTracker->GetSerialHashes());
     zwallet->SyncWithChain(false);
 
     //todo: better response

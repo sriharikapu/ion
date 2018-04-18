@@ -183,7 +183,6 @@ void CxIONWallet::SyncWithChain(bool fGenerateMintPool)
     uint32_t nLastCountUsed = 0;
     bool found = true;
     CWalletDB walletdb(strWalletFile);
-    CxIONTracker* xionTracker = pwalletMain->xionTracker;
 
     set<uint256> setAddedTx;
     while (found) {
@@ -203,7 +202,7 @@ void CxIONWallet::SyncWithChain(bool fGenerateMintPool)
             if (ShutdownRequested())
                 return;
 
-            if (xionTracker->HasPubcoinHash(pMint.first)) {
+            if (pwalletMain->xionTracker->HasPubcoinHash(pMint.first)) {
                 mintPool.Remove(pMint.first);
                 continue;
             }

@@ -337,7 +337,7 @@ bool Stake(CStakeInput* stakeInput, unsigned int nBits, unsigned int nTimeBlockF
 }
 
 // Check kernel hash target and coinstake signature
-bool CheckProofOfStake(const CBlock block, uint256& hashProofOfStake, CStakeInput*& stake)
+bool CheckProofOfStake(const CBlock block, uint256& hashProofOfStake, std::unique_ptr<CStakeInput>& stake)
 {
     const CTransaction tx = block.vtx[1];
     if (!tx.IsCoinStake())
@@ -352,8 +352,7 @@ bool CheckProofOfStake(const CBlock block, uint256& hashProofOfStake, CStakeInpu
         if (spend.getSpendType() != libzerocoin::SpendType::STAKE)
             return error("%s: spend is using the wrong SpendType (%d)", __func__, (int)spend.getSpendType());
 
-        CXIonStake* xionInput = new CXIonStake(spend);
-        stake = xionInput;
+        stake = std::unique_ptr<CStakeInput>(new CXIonStake(spend));
     } else {
         // First try finding the previous transaction in database
         uint256 hashBlock;
@@ -367,7 +366,7 @@ bool CheckProofOfStake(const CBlock block, uint256& hashProofOfStake, CStakeInpu
 
         CIonStake* ionInput = new CIonStake();
         ionInput->SetInput(txPrev, txin.prevout.n);
-        stake = ionInput;
+        stake = std::unique_ptr<CStakeInput>(ionInput);
     }
 
     CBlockIndex* pindex = stake->GetIndexFrom();
