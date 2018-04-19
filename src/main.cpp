@@ -4471,19 +4471,21 @@ bool AcceptBlockHeader(const CBlock& block, CValidationState& state, CBlockIndex
     return true;
 }
 
-bool ContextualCheckZerocoinStake(CStakeInput* stake)
+bool ContextualCheckZerocoinStake(int nHeight, CStakeInput* stake)
 {
-    if (chainActive.Height() + 1 < Params().Zerocoin_Block_V2_Start())
+    if (nHeight < Params().Zerocoin_Block_V2_Start())
         return error("%s: xION stake block is less than allowed start height", __func__);
 
     if (CXIonStake* xION = dynamic_cast<CXIonStake*>(stake)) {
-        CBlockIndex* pindex = xION->GetIndexFrom();
+        CBlockIndex* pindexFrom = xION->GetIndexFrom();
+        if (!pindexFrom)
+            return error("%s: failed to get index associated with xION stake checksum", __func__);
 
-        if (chainActive.Height() - pindex->nHeight < Params().Zerocoin_RequiredStakeDepth())
+        if (chainActive.Height() - pindexFrom->nHeight < Params().Zerocoin_RequiredStakeDepth())
             return error("%s: xION stake does not have required confirmation depth", __func__);
 
         //The checksum needs to be the exact checksum from 200 blocks ago
-        uint256 nCheckpoint200 = chainActive[chainActive.Height() - Params().Zerocoin_RequiredStakeDepth()]->nAccumulatorCheckpoint;
+        uint256 nCheckpoint200 = chainActive[nHeight - Params().Zerocoin_RequiredStakeDepth()]->nAccumulatorCheckpoint;
         uint32_t nChecksum200 = ParseChecksum(nCheckpoint200, libzerocoin::AmountToZerocoinDenomination(xION->GetValue()));
         if (nChecksum200 != xION->GetChecksum())
             return error("%s: accumulator checksum is different than the block 200 blocks previous. stake=%d block200=%d", __func__, xION->GetChecksum(), nChecksum200);
@@ -4536,7 +4538,7 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CBlockIndex** ppindex, 
         if (!stake)
             return error("%s: null stake ptr", __func__);
 
-        if (stake->IsXION() && !ContextualCheckZerocoinStake(stake.get()))
+        if (stake->IsXION() && !ContextualCheckZerocoinStake(pindexPrev->nHeight, stake.get()))
             return state.DoS(100, error("%s: staked xION fails context checks", __func__));
 
         uint256 hash = block.GetHash();
