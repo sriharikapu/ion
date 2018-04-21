@@ -21,13 +21,9 @@ private:
     CBigNum serialNumber;
     uint256 txid;
     bool isUsed;
+    bool isCrypted;
 
 public:
-    CZerocoinMint()
-    {
-        SetNull();
-    }
-
     CZerocoinMint(libzerocoin::CoinDenomination denom, CBigNum value, CBigNum randomness, CBigNum serialNumber, bool isUsed)
     {
         SetNull();
@@ -38,10 +34,15 @@ public:
         this->isUsed = isUsed;
     }
 
+    CZerocoinMint()
+    {
+        SetNull();
+    }
+
     void SetNull()
     {
+        isCrypted = false;
         isUsed = false;
-        randomness = 0;
         value = 0;
         denomination = libzerocoin::ZQ_ERROR;
         nHeight = 0;
@@ -65,6 +66,8 @@ public:
     void SetSerialNumber(CBigNum serial){ this->serialNumber = serial; }
     uint256 GetTxHash() const { return this->txid; }
     void SetTxHash(uint256 txid) { this->txid = txid; }
+    bool IsCrypted() const { return this->isCrypted; }
+    void SetIsCrypted(bool isCrypted) { this->isCrypted = isCrypted; }
 
     inline bool operator <(const CZerocoinMint& a) const { return GetHeight() < a.GetHeight(); }
 
@@ -76,6 +79,7 @@ public:
         serialNumber = other.GetSerialNumber();
         txid = other.GetTxHash();
         isUsed = other.IsUsed();
+        isCrypted = other.IsCrypted();
     }
 
     bool operator == (const CZerocoinMint& other) const
@@ -92,6 +96,7 @@ public:
         serialNumber = other.GetSerialNumber();
         txid = other.GetTxHash();
         isUsed = other.IsUsed();
+        isCrypted = other.IsCrypted();
         return *this;
     }
     
@@ -115,6 +120,7 @@ public:
         READWRITE(denomination);
         READWRITE(nHeight);
         READWRITE(txid);
+        READWRITE(isCrypted);
     };
 };
 

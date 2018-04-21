@@ -23,9 +23,11 @@
 
 #include "libzerocoin/Coin.h"
 #include "spork.h"
+
+#include "univalue/include/univalue.h"
 #include <boost/assign/list_of.hpp>
 
-#include <univalue.h>
+//#include <univalue.h>
 
 using namespace std;
 using namespace boost;
@@ -2698,7 +2700,7 @@ UniValue resetmintzerocoin(const UniValue& params, bool fHelp)
     // update the meta data of mints that were marked for updating
     UniValue arrUpdated(UniValue::VARR);
     for (CZerocoinMint mint : vMintsToUpdate) {
-        walletdb.WriteZerocoinMint(mint);
+        pwalletMain->AddZerocoinMint(mint);
         arrUpdated.push_back(mint.GetValue().GetHex());
     }
 
@@ -2706,7 +2708,7 @@ UniValue resetmintzerocoin(const UniValue& params, bool fHelp)
     UniValue arrDeleted(UniValue::VARR);
     for (CZerocoinMint mint : vMintsMissing) {
         arrDeleted.push_back(mint.GetValue().GetHex());
-        walletdb.ArchiveMintOrphan(mint);
+        pwalletMain->AddMintToArchive(mint);
     }
 
     UniValue obj(UniValue::VOBJ);
@@ -2749,7 +2751,7 @@ UniValue resetspentzerocoin(const UniValue& params, bool fHelp)
         for (CZerocoinMint mint : listMints) {
             if (mint.GetSerialNumber() == spend.GetSerial()) {
                 mint.SetUsed(false);
-                walletdb.WriteZerocoinMint(mint);
+                pwalletMain->AddZerocoinMint(mint);
                 walletdb.EraseZerocoinSpendSerialEntry(spend.GetSerial());
                 RemoveSerialFromDB(spend.GetSerial());
                 UniValue obj(UniValue::VOBJ);
@@ -2909,7 +2911,8 @@ UniValue importzerocoins(const UniValue& params, bool fHelp)
         CZerocoinMint mint(denom, bnValue, bnRandom, bnSerial, fUsed);
         mint.SetTxHash(txid);
         mint.SetHeight(nHeight);
-        walletdb.WriteZerocoinMint(mint);
+
+	pwalletMain->AddZerocoinMint(mint);
         count++;
         nValue += libzerocoin::ZerocoinDenominationToAmount(denom);
     }

@@ -100,7 +100,7 @@ BOOST_AUTO_TEST_CASE(zerocoin_spend_test241)
         j++;
     }
     CoinsHeld = nTotalAmount / COIN;
-    std::cout << "Curremt Amount held = " << CoinsHeld << ": ";
+    std::cout << "Current Amount held = " << CoinsHeld << ": ";
 
     // Show what we have
     j = 0;
