@@ -13,7 +13,7 @@ Ionian is a collection of different Ubuntu 16.04 based media with ionomy ioncoin
 Virtualbox VDI installation
 ---------------------------
 amd64 and i386 follow the same installation process.  
-1) Download the current Ionian vdi (32 or 64 bit) from http://download/ioncoin.org/Ionian/vdi  
+1) Download the current Ionian vdi (32 or 64 bit) from https://github.com/cevap/ionian/releases
 2) Unzip the vdi file that you have just downloaded  
 3) Create a new 32 or 64 bit Virtual Machine in Oracle Virtualbox as documented at <a href="https://www.virtualbox.org/manual" target="_blank">https://www.virtualbox.org/manual</a>   
 4) Select "Use an existing disk file" and select your downloaded VDI as shown below  
@@ -30,7 +30,7 @@ amd64 and i386 follow the same installation process.
   
 Ionian USB Installation
 -----------------------
-Download the current USB image (i386 or amd64) from http://download.ioncoin.org/usb/    
+Download the current USB image (i386 or amd64) from https://github.com/cevap/ionian/releases
 
 1) Windows Install
 
@@ -79,7 +79,7 @@ B) Using DD from the CLI
 Ionian ISO Installation
 ---------------------- 
 
-Download the current ISO image (i386 or amd64) from http://download.ioncoin.org/iso/ and burn the image to a DVD using the appropriate tools (far too many burning tools to mention here)    
+Download the current ISO image (i386 or amd64) from https://github.com/cevap/ionian/releases and burn the image to a DVD using the appropriate tools (far too many burning tools to mention here)    
 
 Put the DVD that you have created into the DVD drive of the system and select try or install.  
 -- note: if "Try Ionian without installing" is selected, ALL changes you make to the system will be lost on reboot.  This is due to the installation being on DVD with no write capabilities.  If needed, you can create a casper-rw usb flash drive to save your changes - this is beyond the scope of this document. 
