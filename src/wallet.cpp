@@ -4871,7 +4871,7 @@ void CWallet::ReconsiderZerocoins(std::list<CZerocoinMint>& listMintsRestored)
 
 
         uint256 txHash;
-        if (!GetTransactionWithPubcoinValue(mint.GetValue(), txHash))
+        if (!GetTransactionWithPubcoinValue(mint.GetValue(), txHash)) {
             LogPrintf("%s: did not find pubcoin %s in database\n", __func__, mint.GetValue().GetHex());
             continue;
         }
