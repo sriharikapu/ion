@@ -2072,7 +2072,7 @@ bool less_then_denom(const COutput& out1, const COutput& out2)
     return (!found1 && found2);
 }
 
-bool CWallet::SelectStakeCoins(std::list<CStakeInput*>& listInputs, CAmount nTargetAmount)
+bool CWallet::SelectStakeCoins(std::list<std::unique_ptr<CStakeInput> >& listInputs, CAmount nTargetAmount)
 {
     //Add ION
     vector<COutput> vCoins;
@@ -2106,9 +2106,9 @@ bool CWallet::SelectStakeCoins(std::list<CStakeInput*>& listInputs, CAmount nTar
                 //add to our stake set
                 nAmountSelected += out.tx->vout[out.i].nValue;
 
-                CIonStake *input = new CIonStake();
+            std::unique_ptr<CIonStake> input(new CIonStake());
                 input->SetInput((CTransaction) *out.tx, out.i);
-                listInputs.emplace_back((CStakeInput *) input);
+            listInputs.emplace_back(std::move(input));
             }
         }
 
@@ -2130,8 +2130,8 @@ bool CWallet::SelectStakeCoins(std::list<CStakeInput*>& listInputs, CAmount nTar
             if (meta.nVersion < CZerocoinMint::STAKABLE_VERSION)
                     continue;
             if (meta.nHeight < chainActive.Height() - Params().Zerocoin_RequiredStakeDepth()) {
-                CXIonStake *input = new CXIonStake(meta.denom, meta.hashStake);
-                    listInputs.emplace_back(input);
+                std::unique_ptr<CXIonStake> input(new CXIonStake(meta.denom, meta.hashStake));
+                listInputs.emplace_back(std::move(input));
                 }
             }
         }
@@ -2947,7 +2947,7 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
 
     // Initialize as static and don't update the set on every run of CreateCoinStake() in order to lighten resource use
     static int nLastStakeSetUpdate = 0;
-    static list<CStakeInput*> listInputs;
+    static list<std::unique_ptr<CStakeInput> > listInputs;
     if (GetTime() - nLastStakeSetUpdate > nStakeSetUpdateTime) {
         listInputs.clear();
         if (!SelectStakeCoins(listInputs, nBalance - nReserveBalance))
@@ -2965,7 +2965,7 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
     CScript scriptPubKeyKernel;
     int nAttempts = 0;
     bool fKernelFound = false;
-    for (CStakeInput* stakeInput : listInputs) {
+    for (std::unique_ptr<CStakeInput>& stakeInput : listInputs) {
         //make sure that enough time has elapsed between
         CBlockIndex* pindex = stakeInput->GetIndexFrom();
         if (!pindex || pindex->nHeight < 1) {
@@ -2980,7 +2980,7 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
 
         //iterates each utxo inside of CheckStakeKernelHash()
         nAttempts++;
-        if (Stake(stakeInput, nBits, block.GetBlockTime(), nTxNewTime, hashProofOfStake)) {
+        if (Stake(stakeInput.get(), nBits, block.GetBlockTime(), nTxNewTime, hashProofOfStake)) {
             LOCK(cs_main);
             //Double check that this will pass time requirements
             if (nTxNewTime <= chainActive.Tip()->GetMedianTimePast()) {
@@ -3036,7 +3036,7 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
 
             //Mark mints as spent
             if (stakeInput->IsXION()) {
-                CXIonStake* z = (CXIonStake*)stakeInput;
+                CXIonStake* z = (CXIonStake*)stakeInput.get();
                 if (!z->MarkSpent(this, txNew.GetHash()))
                     return error("%s: failed to mark mint as used\n", __func__);
             }
