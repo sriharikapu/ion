@@ -101,7 +101,6 @@ CDataStream CXIonStake::GetUniqueness()
 
 bool CXIonStake::CreateTxIn(CWallet* pwallet, CTxIn& txIn, uint256 hashTxOut)
 {
-    LogPrintf("%s\n", __func__);
     CBlockIndex* pindexCheckpoint = GetIndexFrom();
     if (!pindexCheckpoint)
         return error("%s: failed to find checkpoint block index", __func__);
@@ -123,8 +122,6 @@ bool CXIonStake::CreateTxIn(CWallet* pwallet, CTxIn& txIn, uint256 hashTxOut)
 
 bool CXIonStake::CreateTxOuts(CWallet* pwallet, vector<CTxOut>& vout, CAmount nTotal)
 {
-    LogPrintf("%s\n", __func__);
-
     //Create an output returning the xION that was staked
     CTxOut outReward;
     libzerocoin::CoinDenomination denomStaked = libzerocoin::AmountToZerocoinDenomination(this->GetValue());
@@ -153,7 +150,6 @@ bool CXIonStake::CreateTxOuts(CWallet* pwallet, vector<CTxOut>& vout, CAmount nT
 
 bool CXIonStake::GetTxFrom(CTransaction& tx)
 {
-    LogPrintf("%s\n", __func__);
     return false;
 }
 
