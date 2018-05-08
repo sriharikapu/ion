@@ -791,7 +791,9 @@ void PrivacyDialog::updateAutomintStatus()
 void PrivacyDialog::updateSPORK16Status()
 {
     // Update/enable labels, buttons and tooltips depending on the current SPORK_16 status
-    if(GetAdjustedTime() > GetSporkValue(SPORK_9_ZEROCOIN_MAINTENANCE_MODE)) {
+    bool fButtonsEnabled =  ui->pushButtonMintxION->isEnabled();
+    bool fMaintenanceMode = GetAdjustedTime() > GetSporkValue(SPORK_9_ZEROCOIN_MAINTENANCE_MODE);
+    if (fMaintenanceMode && fButtonsEnabled) {
         // Mint xION
         ui->pushButtonMintxION->setEnabled(false);
         ui->pushButtonMintxION->setToolTip(tr("xION is currently disabled due to maintenance."));
@@ -799,8 +801,7 @@ void PrivacyDialog::updateSPORK16Status()
         // Spend xION
         ui->pushButtonSpendxION->setEnabled(false);
         ui->pushButtonSpendxION->setToolTip(tr("xION is currently disabled due to maintenance."));
-    }
-    else {
+    } else if (!fMaintenanceMode && !fButtonsEnabled) {
         // Mint xION
         ui->pushButtonMintxION->setEnabled(true);
         ui->pushButtonMintxION->setToolTip(tr("PrivacyDialog", "Enter an amount of ION to convert to xION", 0));
