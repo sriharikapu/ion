@@ -16,6 +16,7 @@
 #include <accumulators.h>
 #include "wallet.h"
 #include "xionwallet.h"
+#include "xionchain.h"
 
 using namespace libzerocoin;
 
