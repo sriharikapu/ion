@@ -322,6 +322,7 @@ BOOST_AUTO_TEST_CASE(checkzerocoinspend_test)
         accumulator_v2 += pubTemp;
         witness_v2 += pubTemp;
     }
+    cout << (GetTimeMillis() - nTimeStart)/10 << "ms per mint\n";
 
     accumulator_v2 += pubcoin_v2;
 

@@ -121,6 +121,7 @@ public:
             READWRITE(version);
             READWRITE(pubkey);
             READWRITE(vchSig);
+            READWRITE(SpendType);
         } catch (...) {
             version = 0;
         }
