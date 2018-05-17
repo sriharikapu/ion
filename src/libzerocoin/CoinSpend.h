@@ -21,6 +21,7 @@
 #include "Commitment.h"
 #include "Params.h"
 #include "SerialNumberSignatureOfKnowledge.h"
+#include "SpendType.h"
 #include "bignum.h"
 #include "pubkey.h"
 #include "serialize.h"
@@ -141,6 +142,7 @@ private:
     //As of version 2
     CPubKey pubkey;
     std::vector<unsigned char> vchSig;
+    SpendType spendType;
 };
 
 } /* namespace libzerocoin */

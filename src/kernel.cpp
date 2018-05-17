@@ -434,7 +434,8 @@ bool CheckProofOfStake(const CBlock block, uint256& hashProofOfStake, CStakeInpu
     if (tx.IsZerocoinSpend()) {
         libzerocoin::CoinSpend spend = TxInToZerocoinSpend(txin);
         if (spend.getSpendType() != libzerocoin::SpendType::STAKE)
-            return error("%s: spend is using the wrong SpendType", __func__);
+           return error("%s: spend is using the wrong SpendType", __func__);
+
         CXIonStake* xionInput = new CXIonStake(spend);
         stake = xionInput;
     } else {
