@@ -152,6 +152,7 @@ public:
         nBlockFirstFraudulent = 99999999;             // 1110; //First block that bad serials emerged (currently we do not have any) *** TODO ***
         nBlockLastGoodCheckpoint = 550137;            // Last valid accumulator checkpoint (currently we do not have any) *** TODO ***
         nBlockEnforceInvalidUTXO = 550137;            // Start enforcing the invalid UTXO's's
+        nBlockZerocoinV2 = 99999999; //The block that zerocoin v2 becomes active
 
         /**
          * Build the genesis block. Note that the output of the genesis coinbase cannot
@@ -225,6 +226,8 @@ public:
         nRequiredAccumulation = 1;
         nDefaultSecurityLevel = 100; //full security level for accumulators
         nZerocoinHeaderVersion = 8; //Block headers must be this version once zerocoin is active
+        nZerocoinRequiredStakeDepth = 200; //The required confirmations for a xion to be stakable
+
         nBudget_Fee_Confirmations = 6; // Number of confirmations for the finalization fee
     }
 
@@ -273,11 +276,13 @@ public:
         nBlockFirstFraudulent = 99999999;           // 1110; //First block that bad serials emerged (currently we do not have any) *** TODO ***
         nBlockLastGoodCheckpoint = 10000000;        // Last valid accumulator checkpoint (currently we do not have any) *** TODO ***
         nBlockEnforceInvalidUTXO = 10000000;        // Start enforcing the invalid UTXO's
-        
+        nBlockZerocoinV2 = 99999999; //The block that zerocoin v2 becomes active
 
+        //! Modify the testnet genesis block so the timestamp is valid for a later start.
+        genesis.nTime = 1491737471;
         const char* pszTimestamp = "The Guardian: [2nd Feb 2017] Finsbury Park mosque wins apology and damages from Thomson Reuters";
         // CTestNetParams inherits from CMainParams; update what's needed.
-        genesis.nTime = 1491737471;                                         // GMT: Thursday, February 2, 2017 2:30:00 PM
+                                                // GMT: Thursday, February 2, 2017 2:30:00 PM
 
         genesis.vtx.clear();
 
