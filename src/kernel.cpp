@@ -433,6 +433,8 @@ bool CheckProofOfStake(const CBlock block, uint256& hashProofOfStake, CStakeInpu
     //Construct the stakeinput object
     if (tx.IsZerocoinSpend()) {
         libzerocoin::CoinSpend spend = TxInToZerocoinSpend(txin);
+        if (spend.getSpendType() != libzerocoin::SpendType::STAKE)
+            return error("%s: spend is using the wrong SpendType", __func__);
         CXIonStake* xionInput = new CXIonStake(spend);
         stake = xionInput;
     } else {
@@ -449,27 +451,6 @@ bool CheckProofOfStake(const CBlock block, uint256& hashProofOfStake, CStakeInpu
         CIonStake* ionInput = new CIonStake();
         ionInput->SetInput(txPrev, txin.prevout.n);
         stake = ionInput;
-    }
-
-    //Construct the stakeinput object
-    if (tx.IsZerocoinSpend()) {
-        libzerocoin::CoinSpend spend = TxInToZerocoinSpend(txin);
-        CXIonStake* xionInput = new CXIonStake(spend);
-        stake = xionInput;
-    } else {
-        // First try finding the previous transaction in database
-        uint256 hashBlock;
-        CTransaction txPrev;
-        if (!GetTransaction(txin.prevout.hash, txPrev, hashBlock, true))
-            return error("CheckProofOfStake() : INFO: read txPrev failed");
-
-        //verify signature and script
-        if (!VerifyScript(txin.scriptSig, txPrev.vout[txin.prevout.n].scriptPubKey, STANDARD_SCRIPT_VERIFY_FLAGS, TransactionSignatureChecker(&tx, 0)))
-            return error("CheckProofOfStake() : VerifySignature failed on coinstake %s", tx.GetHash().ToString().c_str());
-
-        CIonStake* pivInput = new CIonStake();
-        pivInput->SetInput(txPrev, txin.prevout.n);
-        stake = pivInput;
     }
 
     CBlockIndex* pindex = stake->GetIndexFrom();
