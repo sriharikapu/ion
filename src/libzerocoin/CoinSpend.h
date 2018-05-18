@@ -25,6 +25,7 @@
 #include "bignum.h"
 #include "pubkey.h"
 #include "serialize.h"
+#include "SpendType.h"
 
 namespace libzerocoin
 {
@@ -66,7 +67,7 @@ public:
 	 * @throw ZerocoinException if the process fails
 	 */
     CoinSpend(const ZerocoinParams* p, const PrivateCoin& coin, Accumulator& a, const uint32_t& checksum,
-              const AccumulatorWitness& witness, const uint256& ptxHash);
+              const AccumulatorWitness& witness, const uint256& ptxHash, const SpendType& spendType);
 
     /** Returns the serial number of the coin spend by this proof.
 	 *
@@ -116,12 +117,11 @@ public:
         READWRITE(accumulatorPoK);
         READWRITE(serialNumberSoK);
         READWRITE(commitmentPoK);
-
+        READWRITE(spendType);
         try {
             READWRITE(version);
             READWRITE(pubkey);
             READWRITE(vchSig);
-            READWRITE(SpendType);
         } catch (...) {
             version = 0;
         }
