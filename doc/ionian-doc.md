@@ -1,13 +1,17 @@
 Ionian OS Installation Manual
 =============================
 
-Ionian is a collection of different Ubuntu 16.04 based media with ionomy ioncoin software ready installed and updated automatially from the master ionomy ppa.  It is broken down into 3 different sets of images.
+Ionian OS is a collection of different Linux Distribution media with ionomy ioncoin software ready installed. It is broken down into 5 different sets of images available at https://github.com/cevap/ionian/releases
 
-1) Ionian ISO -- this is an install-to computer iso image that will install Ubuntu Ionian 16.04 to a local computer.  Available in both i386 and amd64 versions  
+1) Ionian ISO -- this is an install-to computer iso image that will install Ubuntu Ionian to a local computer. Available in both i386 and amd64 versions - updated automatically from the master ionomy ppa https://github.com/cevap/ionian/releases/tag/Ionian-iso
 
-2) Ionian USB -- this is meant as a complete copy-and-run solution.  With this image you can run directly from the usb medium, also available in i386 and amd64 versions  
+2) Ionian USB -- this is meant as a complete copy-and-run solution. With this image you can run directly from the usb medium, also available in i386 and amd64 versions - updated automatically from the master ionomy ppa https://github.com/cevap/ionian/releases/tag/Ionian-usb
 
-3) Ionian VDI -- These images are meant for use in Oracle VIrtualBox environments.  Again, i386 and mad64 versions are available 
+3) Ionian VDI -- These images are meant for use in Oracle VIrtualBox environments. Again, i386 and amd64 versions are available - updated automatically from the master ionomy ppa https://github.com/cevap/ionian/releases/tag/Ionian-vdi
+
+4) Ionian OS -- based on Gitian deterministic building https://github.com/cevap/ionian/releases/tag/v8.10
+
+5) Ionian Raspian -- Ready-to-run disk image for Raspberry Pi 3 https://github.com/cevap/ionian/releases/tag/Ionian-Raspian
 
 
 Virtualbox VDI installation
@@ -83,3 +87,49 @@ Download the current ISO image (i386 or amd64) from https://github.com/cevap/ion
 
 Put the DVD that you have created into the DVD drive of the system and select try or install.  
 -- note: if "Try Ionian without installing" is selected, ALL changes you make to the system will be lost on reboot.  This is due to the installation being on DVD with no write capabilities.  If needed, you can create a casper-rw usb flash drive to save your changes - this is beyond the scope of this document. 
+
+
+Ionian for Raspberry Pi 3
+-------------------------
+
+Download all parts of Ionian Raspian (either named with bchain-XXXXXXX or no-bchain) from https://github.com/cevap/ionian/tags/Ionian-raspi and unzip them to a directory on the computer you will be writing the images with.
+
+1) Windows Install
+
+    Download rufus (or similar SD writing software) rufus can be downloaded from
+    https://rufus.akeo.ie/
+
+    insert your Raspberry Pi 3 SD card (16 GB or Larger) into an
+    unused sd card slot or usb slot if using an adapter
+
+    double click on rufus from the download folder you downloaded it to
+    and follow the instructions to install ionian-....xz
+
+![](ionian-doc-images/rufus.png)
+
+    remove the SD replace in your Raspberry Pi and reboot your pi
+
+2) Linux/OSX install
+
+    install mkusb for your system using the appropriate package manager
+
+    insert your Raspberry Pi 3 SD card (16 GB or Larger) into an
+    unused SD card slot or usb slot if using an adapter
+
+    start mkusb and select the ionian-....xz file that you downloaded
+    and follow the instructions
+
+    once mkusb has finished you can remove the SD card, replace it in your
+    Raspberry Pi and reboot your pi
+
+Running Ionian
+
+    Login as user ionian password ionian (sudo is unlocked)
+
+    first run iond from the commandline to get an rpc username and password
+
+    enter these into .ioncoin/ioncoin.conf
+
+    you can now run either "systemctl start iond" (headless) or click on the
+    icon on the desktop or in the application menu
+
