@@ -25,7 +25,6 @@
 #include "bignum.h"
 #include "pubkey.h"
 #include "serialize.h"
-#include "SpendType.h"
 
 namespace libzerocoin
 {
