@@ -117,13 +117,14 @@ public:
         READWRITE(accumulatorPoK);
         READWRITE(serialNumberSoK);
         READWRITE(commitmentPoK);
-        READWRITE(spendType);
+
         try {
             READWRITE(version);
             READWRITE(pubkey);
             READWRITE(vchSig);
+            READWRITE(spendType);
         } catch (...) {
-            version = 0;
+            version = 1;
         }
     }
 
