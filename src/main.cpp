@@ -4544,7 +4544,7 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CBlockIndex** ppindex, 
         CStakeInput* stake = nullptr;
 
         if (!CheckProofOfStake(block, hashProofOfStake, stake)) {
-            if (chainActive.Height() > 1126 && chainActive.Height() <= Params().DGWStartHeight()) {
+            if (chainActive.Height() >= 1126 && chainActive.Height() <= Params().DGWStartHeight()) {
                 // **TODO** - CheckProofOfStake - proof of stake check failed;
             } else {
                 return state.DoS(100, error("%s: proof of stake check failed", __func__));

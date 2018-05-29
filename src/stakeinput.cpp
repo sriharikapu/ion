@@ -201,7 +201,7 @@ bool CIonStake::GetModifier(uint64_t& nStakeModifier)
         return error("%s: failed to get index from", __func__);
 
     if (!GetKernelStakeModifierPos3(pindexFrom->GetBlockHash(), nStakeModifier, nStakeModifierHeight, nStakeModifierTime, false)) {
-        if (chainActive.Height() > 1126 && chainActive.Height() <= Params().DGWStartHeight()) {
+        if (chainActive.Height() >= 1126 && chainActive.Height() <= Params().DGWStartHeight()) {
 
         } else {
             return error("CheckStakePos2(): failed to get kernel stake modifier \n");

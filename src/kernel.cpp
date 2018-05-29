@@ -341,7 +341,7 @@ bool Stake(CStakeInput* stakeInput, unsigned int nBits, unsigned int nTimeBlockF
     //grab stake modifier
     uint64_t nStakeModifier = 0;
     if (!stakeInput->GetModifier(nStakeModifier)) {
-        if (chainActive.Height() > 1126 && chainActive.Height() <= Params().DGWStartHeight()) {
+        if (chainActive.Height() >= 1126 && chainActive.Height() <= Params().DGWStartHeight()) {
             //
         } else {
             return error("failed to get kernel stake modifier");
@@ -468,7 +468,7 @@ bool CheckProofOfStake(const CBlock block, uint256& hashProofOfStake, CStakeInpu
 
     uint64_t nStakeModifier = 0;
     if (!stake->GetModifier(nStakeModifier)) {
-        if (chainActive.Height() > 1126 && chainActive.Height() <= Params().DGWStartHeight()) {
+        if (chainActive.Height() >= 1126 && chainActive.Height() <= Params().DGWStartHeight()) {
             return true;
         } else {
             return error("%s failed to get modifier for stake input\n", __func__);
