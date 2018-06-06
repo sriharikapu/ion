@@ -232,7 +232,7 @@ bool ComputeNextStakeModifier(const CBlockIndex* pindexPrev, uint64_t& nStakeMod
     return true;
 }
 
-bool GetKernelStakeModifierPos3(uint256 hashBlockFrom, uint64_t& nStakeModifier, int& nStakeModifierHeight, int64_t& nStakeModifierTime, bool fPrintProofOfStake)
+bool GetKernelStakeModifier(uint256 hashBlockFrom, uint64_t& nStakeModifier, int& nStakeModifierHeight, int64_t& nStakeModifierTime, bool fPrintProofOfStake)
 {
     nStakeModifier = 0;
     if (!mapBlockIndex.count(hashBlockFrom))
@@ -248,7 +248,11 @@ bool GetKernelStakeModifierPos3(uint256 hashBlockFrom, uint64_t& nStakeModifier,
     while (nStakeModifierTime < pindexFrom->GetBlockTime() + nStakeModifierSelectionInterval) {
         if (!pindexNext) {
             // Should never happen - FornaxA: **TODO** add Ion's old stake modifier code
-            return error("Null pindexNext\n");
+            if (chainActive.Height() >= 1126 && chainActive.Height() <= Params().DGWStartHeight()) {
+                return true;
+            } else {
+                return error("Null pindexNext\n");
+            }
         }
 
         pindex = pindexNext;
@@ -280,6 +284,7 @@ bool CheckStake(const CDataStream& ssUniqueID, CAmount nValueIn, const uint64_t 
     hashProofOfStake = Hash(ss.begin(), ss.end());
 
     //LogPrintf("%s: nTimeBlock=%d nTimeTx=%d modifier=%d\n", __func__, nTimeBlockFrom, nTimeTx, nStakeModifier);
+    if (nTimeTx < (unsigned int)Params().DGWStartTime()) return true;
 
     return stakeTargetHit(hashProofOfStake, nValueIn, bnTarget);
 }
@@ -548,11 +553,4 @@ bool CheckStakeKernelHashPos2(unsigned int nBits, const CBlock blockFrom, const 
     mapHashedBlocks.clear();
     mapHashedBlocks[chainActive.Tip()->nHeight] = GetTime(); //store a time stamp of when we last hashed on this block
     return fSuccess;
-}
-
-bool CheckStakeKernelHash(unsigned int nBits, const CBlock blockFrom, const CTransaction txPrev, const COutPoint prevout, unsigned int& nTimeTx, unsigned int nHashDrift, bool fCheck, uint256& hashProofOfStake, bool fPrintProofOfStake)
-{
-    return (nTimeTx < (unsigned int)Params().DGWStartTime()) ? 
-        CheckStakeKernelHashPos2(nBits, blockFrom, txPrev, prevout, nTimeTx, nHashDrift, fCheck, hashProofOfStake,fPrintProofOfStake) :
-        CheckStakeKernelHashPos3(nBits, blockFrom, txPrev, prevout, nTimeTx, nHashDrift, fCheck, hashProofOfStake,fPrintProofOfStake);
 }
