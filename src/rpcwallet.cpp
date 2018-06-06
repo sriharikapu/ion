@@ -2496,9 +2496,9 @@ UniValue mintzerocoin(const UniValue& params, bool fHelp)
             "\nExamples:\n"
             "\nMint 50 from anywhere\n" +
             HelpExampleCli("mintzerocoin", "50") +
-            "\nMint 13 from a specific output\n" + 
+            "\nMint 13 from a specific output\n" +
             HelpExampleCli("mintzerocoin", "13 \"[{\\\"txid\\\":\\\"a08e6907dbbd3d809776dbfc5d82e371b764ed838b5655e72f463568df1aadf0\\\",\\\"vout\\\":1}]\"") +
-            "\nAs a json rpc call\n" + 
+            "\nAs a json rpc call\n" +
             HelpExampleRpc("mintzerocoin", "13, \"[{\\\"txid\\\":\\\"a08e6907dbbd3d809776dbfc5d82e371b764ed838b5655e72f463568df1aadf0\\\",\\\"vout\\\":1}]\"")
             + HelpRequiringPassphrase());
 
@@ -2511,7 +2511,7 @@ UniValue mintzerocoin(const UniValue& params, bool fHelp)
     {
         RPCTypeCheck(params, boost::assign::list_of(UniValue::VNUM)(UniValue::VARR));
     }
- 
+
     int64_t nTime = GetTimeMillis();
 
     if(GetAdjustedTime() > GetSporkValue(SPORK_9_ZEROCOIN_MAINTENANCE_MODE))

@@ -1288,7 +1288,7 @@ std::list<CBigNum> CWalletDB::ListMintedCoinsSerial()
 {
     std::list<CBigNum> listPubCoin;
     std::list<CZerocoinMint> listCoins = ListMintedCoins(false, false, false);
-    
+
     for ( auto& coin : listCoins) {
         listPubCoin.push_back(coin.GetSerialNumber());
     }
@@ -1344,7 +1344,7 @@ std::list<CBigNum> CWalletDB::ListSpentCoinsSerial()
 {
     std::list<CBigNum> listPubCoin;
     std::list<CZerocoinSpend> listCoins = ListSpentCoins();
-    
+
     for ( auto& coin : listCoins) {
         listPubCoin.push_back(coin.GetSerial());
     }

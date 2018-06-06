@@ -14,7 +14,7 @@
 
 #include "univalue.h"
 
-namespace 
+namespace
 {
 static bool ParsePrechecks(const std::string& str)
 {

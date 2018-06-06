@@ -200,7 +200,7 @@ protected:
     int nMidasStartTime;
     int nDGWStartHeight;
     int nDGWStartTime;
-    
+
 };
 
 /**

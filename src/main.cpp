@@ -3081,18 +3081,18 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
         return true;
     }
 
-/** FornaxA: Ion accepts PoS during PoW phase 
+/** FornaxA: Ion accepts PoS during PoW phase
  *
  *   if (pindex->nHeight <= Params().LAST_POW_BLOCK() && block.IsProofOfStake())
  *       return state.DoS(100, error("ConnectBlock() : PoS period not active"),
  *           REJECT_INVALID, "PoS-early");
  */
-/** cevap: Ion accepts PoS during PoW phase, PoW Ends with block 1000, PoS starts with 455, testnet 74 
+/** cevap: Ion accepts PoS during PoW phase, PoW Ends with block 1000, PoS starts with 455, testnet 74
  *
- */ 
-/** cevap: Ion accepts PoS during PoW phase, PoW Ends with block 1000, PoS starts with 455, testnet 74 
+ */
+/** cevap: Ion accepts PoS during PoW phase, PoW Ends with block 1000, PoS starts with 455, testnet 74
  *
- */ 
+ */
 /** cevap: fix "warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]"
  *  Orig:     if (pindex->nHeight <= 73 && block.IsProofOfStake() && Params().NetworkID() == CBaseChainParams::TESTNET || pindex->nHeight <= 454 && block.IsProofOfStake())
  */
@@ -3267,7 +3267,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
     if (block.IsProofOfWork() && pindex->nHeight > 1)
     {
         nExpectedMint = nFees;
-    } else if (block.IsProofOfStake()) 
+    } else if (block.IsProofOfStake())
     {
         nExpectedMint += nFees;
     }
@@ -4337,14 +4337,14 @@ bool CheckWork(const CBlock block, CBlockIndex* const pindexPrev)
     unsigned int nBitsRequired = GetNextWorkRequired(pindexPrev, &block, block.IsProofOfStake());
 
     /** cevap - disable to pass block 3
-     * 
+     *
      * Original:
      *     if (block.nBits != nBitsRequired)
      *         return error("%s : incorrect proof of work at %d", __func__, pindexPrev->nHeight + 1);
      */
     if (nHeight >= Params().Zerocoin_StartHeight()) {
         if (block.nBits != nBitsRequired)
-            return error("%s : incorrect proof of work at %d", __func__, pindexPrev->nHeight + 1);        
+            return error("%s : incorrect proof of work at %d", __func__, pindexPrev->nHeight + 1);
     }
 
     return true;
