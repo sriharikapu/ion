@@ -291,7 +291,7 @@ WalletModel::SendCoinsReturn WalletModel::prepareTransaction(WalletModelTransact
                 return InvalidAmount;
             }
             total += subtotal;
-        } else { // User-entered ion address / amount:
+        } else { // User-entered Ion address / amount:
             if (!validateAddress(rcp.address)) {
                 return InvalidAddress;
             }

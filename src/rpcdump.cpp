@@ -318,7 +318,7 @@ UniValue dumpprivkey(const UniValue& params, bool fHelp)
             "\nReveals the private key corresponding to 'ionaddress'.\n"
             "Then the importprivkey can be used with this output\n"
             "\nArguments:\n"
-            "1. \"ionaddress\"   (string, required) The ion address for the private key\n"
+            "1. \"ionaddress\"   (string, required) The Ion address for the private key\n"
             "\nResult:\n"
             "\"key\"                (string) The private key\n"
             "\nExamples:\n" +
@@ -409,7 +409,7 @@ UniValue bip38encrypt(const UniValue& params, bool fHelp)
             "bip38encrypt \"ionaddress\"\n"
             "\nEncrypts a private key corresponding to 'ionaddress'.\n"
             "\nArguments:\n"
-            "1. \"ionaddress\"   (string, required) The ion address for the private key (you must hold the key already)\n"
+            "1. \"ionaddress\"   (string, required) The Ion address for the private key (you must hold the key already)\n"
             "2. \"passphrase\"   (string, required) The passphrase you want the private key to be encrypted with - Valid special chars: !#$%&'()*+,-./:;<=>?`{|}~ \n"
             "\nResult:\n"
             "\"key\"                (string) The encrypted private key\n"
