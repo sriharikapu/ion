@@ -62,11 +62,11 @@
         <translation>Ontvangstadressen</translation>
     </message>
     <message>
-        <source>These are your Ion addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <source>These are your ION addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
         <translation>Dit zijn uw IONadressen om betalingen mee te verzenden. Controleer altijd zowel het bedrag als het ontvangstadres voor het verzenden.</translation>
     </message>
     <message>
-        <source>These are your Ion addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <source>These are your ION addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
         <translation>Dit zijn uw IONadressen waarop betalingen kunnen worden ontvangen. Het wordt aangeraden om een nieuw ontvangstadres voor elke transactie te gebruiken.</translation>
     </message>
     <message>
@@ -181,7 +181,7 @@
     </message>
     <message>
         <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR ION&lt;/b&gt;!</source>
-        <translation>Waarschuwing: Als u uw portemonnee versleutelt en uw wachtwoord vergeet, zult u &lt;b&gt;AL UW Ion VERLIEZEN&lt;/b&gt;!</translation>
+        <translation>Waarschuwing: Als u uw portemonnee versleutelt en uw wachtwoord vergeet, zult u &lt;b&gt;AL UW ION VERLIEZEN&lt;/b&gt;!</translation>
     </message>
     <message>
         <source>Wallet encrypted</source>
@@ -235,16 +235,16 @@
         <translation>&amp;BIP 38 Versleuteling</translation>
     </message>
     <message>
-        <source>Enter a Ion Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
-        <translation>Voer een Ion adres in dat u wilt versleutelen met BIP 38. Voer een wachtwoord in, in het middelste veld. Druk op versleutelen om de versleutelde geheime sleutel te berekenen.</translation>
+        <source>Enter a ION Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
+        <translation>Voer een ION adres in dat u wilt versleutelen met BIP 38. Voer een wachtwoord in, in het middelste veld. Druk op versleutelen om de versleutelde geheime sleutel te berekenen.</translation>
     </message>
     <message>
         <source>Address:</source>
         <translation>Adres:</translation>
     </message>
     <message>
-        <source>The Ion address to sign the message with</source>
-        <translation>Het Ion adres om het bericht met te ondertekenen</translation>
+        <source>The ION address to sign the message with</source>
+        <translation>Het ION adres om het bericht met te ondertekenen</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -275,8 +275,8 @@
         <translation>Kopieer de huidige handtekening naar het systeemklembord</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Ion address</source>
-        <translation>Onderteken het bericht om te bewijzen dat u het Ion adres bezit</translation>
+        <source>Sign the message to prove you own this ION address</source>
+        <translation>Onderteken het bericht om te bewijzen dat u het ION adres bezit</translation>
     </message>
     <message>
         <source>Encrypt &amp;Key</source>
@@ -299,12 +299,12 @@
         <translation>Voer de BIP 38 versleutelde geheime sleutel in. Voer het wachtwoord in, in het middelste veld. Druk op Ontsleutelen Sleutel om de geheime sleutel te berekenen.  Nadat de geheime sleutel is ontsleuteld, zal het klikken op 'Adres Importeren' de geheime sleutel toevoegen aan de portemonnee.</translation>
     </message>
     <message>
-        <source>The Ion address the message was signed with</source>
-        <translation>Het Ion adres waarmee het bericht was ondertekend</translation>
+        <source>The ION address the message was signed with</source>
+        <translation>Het ION adres waarmee het bericht was ondertekend</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Ion address</source>
-        <translation>Controleer een bericht om te verifiëren dat het ondertekend is door het gespecificeerde Ion adres</translation>
+        <source>Verify the message to ensure it was signed with the specified ION address</source>
+        <translation>Controleer een bericht om te verifiëren dat het ondertekend is door het gespecificeerde ION adres</translation>
     </message>
     <message>
         <source>Decrypt &amp;Key</source>
@@ -594,12 +594,12 @@
         <translation>Tabblad werkbalk</translation>
     </message>
     <message>
-        <source>Ion Core</source>
+        <source>ION Core</source>
         <translation>ION Kern</translation>
     </message>
     <message>
-        <source>Send coins to a Ion address</source>
-        <translation>Verstuur munten naar een Ion adres</translation>
+        <source>Send coins to a ION address</source>
+        <translation>Verstuur munten naar een ION adres</translation>
     </message>
     <message>
         <source>Request payments (generates QR codes and ion: URIs)</source>
@@ -614,24 +614,24 @@
         <translation>Bekijk masternodes</translation>
     </message>
     <message>
-        <source>&amp;About Ion Core</source>
-        <translation>&amp;Over Ion Kern</translation>
+        <source>&amp;About ION Core</source>
+        <translation>&amp;Over ION Kern</translation>
     </message>
     <message>
-        <source>Show information about Ion Core</source>
-        <translation>Toon informatie over Ion Kern</translation>
+        <source>Show information about ION Core</source>
+        <translation>Toon informatie over ION Kern</translation>
     </message>
     <message>
         <source>Modify configuration options for ION</source>
-        <translation>Wijzig Ion configuratie opties</translation>
+        <translation>Wijzig ION configuratie opties</translation>
     </message>
     <message>
-        <source>Sign messages with your Ion addresses to prove you own them</source>
-        <translation>Onderteken berichten met uw Ion adressen om te bewijzen dat u deze adressen bezit</translation>
+        <source>Sign messages with your ION addresses to prove you own them</source>
+        <translation>Onderteken berichten met uw ION adressen om te bewijzen dat u deze adressen bezit</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Ion addresses</source>
-        <translation>Controleer berichten om te verifiëren dat deze ondertekend zijn met de gespecificeerde Ion adressen</translation>
+        <source>Verify messages to ensure they were signed with specified ION addresses</source>
+        <translation>Controleer berichten om te verifiëren dat deze ondertekend zijn met de gespecificeerde ION adressen</translation>
     </message>
     <message>
         <source>&amp;BIP38 tool</source>
@@ -674,12 +674,12 @@
         <translation>Block verkenner venster</translation>
     </message>
     <message>
-        <source>Ion Core client</source>
-        <translation>Ion Core client</translation>
+        <source>ION Core client</source>
+        <translation>ION Core client</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to Ion network</source>
-        <translation><numerusform>%n actieve verbinding(en) naar het Ion netwerk</numerusform><numerusform>%n actieve verbinding(en) naar het Ion netwerk</numerusform></translation>
+        <source>%n active connection(s) to ION network</source>
+        <translation><numerusform>%n actieve verbinding(en) naar het ION netwerk</numerusform><numerusform>%n actieve verbinding(en) naar het ION netwerk</numerusform></translation>
     </message>
     <message>
         <source>Synchronizing with network...</source>
@@ -1042,8 +1042,8 @@ MultiSend: %1</translation>
         <translation>Wijzig verzendadres</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid Ion address.</source>
-        <translation>Het ingevoerde adres: "%1" is geen geldig Ion adres.</translation>
+        <source>The entered address "%1" is not a valid ION address.</source>
+        <translation>Het ingevoerde adres: "%1" is geen geldig ION adres.</translation>
     </message>
     <message>
         <source>The entered address "%1" is already in the address book.</source>
@@ -1072,7 +1072,7 @@ MultiSend: %1</translation>
         <translation>versie</translation>
     </message>
     <message>
-        <source>Ion Core</source>
+        <source>ION Core</source>
         <translation>ION Kern</translation>
     </message>
     <message>
@@ -1080,8 +1080,8 @@ MultiSend: %1</translation>
         <translation>(%1-bit)</translation>
     </message>
     <message>
-        <source>About Ion Core</source>
-        <translation>Over Ion Core</translation>
+        <source>About ION Core</source>
+        <translation>Over ION Core</translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -1111,15 +1111,15 @@ MultiSend: %1</translation>
         <translation>Welkom</translation>
     </message>
     <message>
-        <source>Welcome to Ion Core.</source>
-        <translation>Welkom bij Ion Core</translation>
+        <source>Welcome to ION Core.</source>
+        <translation>Welkom bij ION Core</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
         <translation>Gebruik de standaard datafolder </translation>
     </message>
     <message>
-        <source>Ion Core</source>
+        <source>ION Core</source>
         <translation>ION Kern</translation>
     </message>
     <message>
@@ -1336,11 +1336,11 @@ MultiSend: %1</translation>
         <translation>Expert</translation>
     </message>
     <message>
-        <source>Automatically start Ion after logging in to the system.</source>
+        <source>Automatically start ION after logging in to the system.</source>
         <translation>ION automatisch opstarten na inloggen op het systeem.</translation>
     </message>
     <message>
-        <source>&amp;Start Ion on system login</source>
+        <source>&amp;Start ION on system login</source>
         <translation>&amp;ION starten bij systeemlogin</translation>
     </message>
     <message>
@@ -1500,8 +1500,8 @@ MultiSend: %1</translation>
 <context>
     <name>PrivacyDialog</name>
     <message>
-        <source>Enter an amount of Ion to convert to xION</source>
-        <translation>Vul de hoeveleheid in om Ion te converteren naar xION</translation>
+        <source>Enter an amount of ION to convert to xION</source>
+        <translation>Vul de hoeveleheid in om ION te converteren naar xION</translation>
     </message>
     <message>
         <source>0</source>
@@ -1619,8 +1619,8 @@ MultiSend: %1</translation>
         <translation>Hoeveelheid</translation>
     </message>
     <message>
-        <source>Enter a Ion address (e.g. %1)</source>
-        <translation>Voer een Ion adres in (b.v. %1)</translation>
+        <source>Enter a ION address (e.g. %1)</source>
+        <translation>Voer een ION adres in (b.v. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1821,8 +1821,8 @@ MultiSend: %1</translation>
         <translation>Uit:</translation>
     </message>
     <message>
-        <source>Welcome to the Ion RPC console.</source>
-        <translation>Welkom bij de Ion RPC console.</translation>
+        <source>Welcome to the ION RPC console.</source>
+        <translation>Welkom bij de ION RPC console.</translation>
     </message>
     <message>
         <source>%1 B</source>
@@ -2121,8 +2121,8 @@ MultiSend: %1</translation>
         <translation>anonieme financiën</translation>
     </message>
     <message>
-        <source>Warning: Invalid Ion address</source>
-        <translation>Waarschuwing: Ongeldig Ion adres</translation>
+        <source>Warning: Invalid ION address</source>
+        <translation>Waarschuwing: Ongeldig ION adres</translation>
     </message>
     <message>
         <source>any available funds (not recommended)</source>
@@ -2176,8 +2176,8 @@ MultiSend: %1</translation>
         <translation>Betaal &amp;Naar:</translation>
     </message>
     <message>
-        <source>The Ion address to send the payment to</source>
-        <translation>Het Ion adres om de betaling naar te verzenden</translation>
+        <source>The ION address to send the payment to</source>
+        <translation>Het ION adres om de betaling naar te verzenden</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2231,8 +2231,8 @@ MultiSend: %1</translation>
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>Ion Core is shutting down...</source>
-        <translation>Ion Core is aan het afsluiten...</translation>
+        <source>ION Core is shutting down...</source>
+        <translation>ION Core is aan het afsluiten...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -2250,8 +2250,8 @@ MultiSend: %1</translation>
         <translation>&amp;Onderteken Bericht</translation>
     </message>
     <message>
-        <source>The Ion address to sign the message with</source>
-        <translation>Het Ion adres om het bericht met te ondertekenen</translation>
+        <source>The ION address to sign the message with</source>
+        <translation>Het ION adres om het bericht met te ondertekenen</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2282,16 +2282,16 @@ MultiSend: %1</translation>
         <translation>Kopieer de huidige handtekening naar het systeemklembord</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Ion address</source>
-        <translation>Onderteken het bericht om te bewijzen dat u het Ion adres bezit</translation>
+        <source>Sign the message to prove you own this ION address</source>
+        <translation>Onderteken het bericht om te bewijzen dat u het ION adres bezit</translation>
     </message>
     <message>
-        <source>The Ion address the message was signed with</source>
-        <translation>Het Ion adres waarmee het bericht was ondertekend</translation>
+        <source>The ION address the message was signed with</source>
+        <translation>Het ION adres waarmee het bericht was ondertekend</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Ion address</source>
-        <translation>Controleer een bericht om te verifiëren dat het ondertekend is door het gespecificeerde Ion adres</translation>
+        <source>Verify the message to ensure it was signed with the specified ION address</source>
+        <translation>Controleer een bericht om te verifiëren dat het ondertekend is door het gespecificeerde ION adres</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -2361,7 +2361,7 @@ MultiSend: %1</translation>
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>Ion Core</source>
+        <source>ION Core</source>
         <translation>ION Kern</translation>
     </message>
     <message>
@@ -2377,8 +2377,8 @@ MultiSend: %1</translation>
         <translation>De Dash Core ontwikkelaars</translation>
     </message>
     <message>
-        <source>The Ion Core developers</source>
-        <translation>De Ion Core ontwikkelaars</translation>
+        <source>The ION Core developers</source>
+        <translation>De ION Core ontwikkelaars</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -2806,8 +2806,8 @@ MultiSend: %1</translation>
         <translation>Copyright (C) 2015-%i The PIVX Core Ontwikkelaars</translation>
     </message>
     <message>
-        <source>Copyright (C) %i The Ion Core Developers</source>
-        <translation>Copyright (C) %i The Ion Core Ontwikkelaars</translation>
+        <source>Copyright (C) %i The ION Core Developers</source>
+        <translation>Copyright (C) %i The ION Core Ontwikkelaars</translation>
     </message>
     <message>
         <source>Debugging/Testing options:</source>

@@ -227,8 +227,8 @@
         <translation>Zakodowany klucz:</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Ion address</source>
-        <translation>Zatwierdź wiadomość, aby udowodnić, że podany adres Ion jest w twoim posiadaniu</translation>
+        <source>Sign the message to prove you own this ION address</source>
+        <translation>Zatwierdź wiadomość, aby udowodnić, że podany adres ION jest w twoim posiadaniu</translation>
     </message>
     <message>
         <source>Encrypt &amp;Key</source>
@@ -518,11 +518,11 @@
         <translation>&amp;Pomoc</translation>
     </message>
     <message>
-        <source>Ion Core</source>
+        <source>ION Core</source>
         <translation>&amp;Rdzeń ION</translation>
     </message>
     <message>
-        <source>Send coins to a Ion address</source>
+        <source>Send coins to a ION address</source>
         <translation>Wyślij monety do adresu ION</translation>
     </message>
     <message>
@@ -538,11 +538,11 @@
         <translation>Przeglądaj masternodes</translation>
     </message>
     <message>
-        <source>&amp;About Ion Core</source>
+        <source>&amp;About ION Core</source>
         <translation>&amp;O rdzeniu bitcoina</translation>
     </message>
     <message>
-        <source>Show information about Ion Core</source>
+        <source>Show information about ION Core</source>
         <translation>Pokaż informacje o rdzeniu bitcoina</translation>
     </message>
     <message>
@@ -550,11 +550,11 @@
         <translation>Modyfikuj opcje konfiguracji ION</translation>
     </message>
     <message>
-        <source>Sign messages with your Ion addresses to prove you own them</source>
+        <source>Sign messages with your ION addresses to prove you own them</source>
         <translation>Zatwierdź wiadomość z twoimi adresami ION, by udowodnić, że jesteś w ich posiadaniu</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Ion addresses</source>
+        <source>Verify messages to ensure they were signed with specified ION addresses</source>
         <translation>Zweryfikuj wiadomości by upewnić się, że zostały zatwierdzone z podanego adresu ION</translation>
     </message>
     <message>
@@ -594,12 +594,12 @@
         <translation>Okno eksplorera bloków</translation>
     </message>
     <message>
-        <source>Show the Ion Core help message to get a list with possible Ion command-line options</source>
-        <translation>Pokaż wiadomość pomocy rdzenia ION, aby dostać listę możliwych opcji Ion command-line</translation>
+        <source>Show the ION Core help message to get a list with possible ION command-line options</source>
+        <translation>Pokaż wiadomość pomocy rdzenia ION, aby dostać listę możliwych opcji ION command-line</translation>
     </message>
     <message>
-        <source>Ion Core client</source>
-        <translation>Rdzeń Ion klient</translation>
+        <source>ION Core client</source>
+        <translation>Rdzeń ION klient</translation>
     </message>
     <message>
         <source>Synchronizing with network...</source>
@@ -912,7 +912,7 @@ MultiWysyłlka: %1</translation>
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>Ion Core</source>
+        <source>ION Core</source>
         <translation>&amp;Rdzeń ION</translation>
     </message>
     </context>
@@ -927,7 +927,7 @@ MultiWysyłlka: %1</translation>
         <translation>Użyj niestandardowej ścieżki danych</translation>
     </message>
     <message>
-        <source>Ion Core</source>
+        <source>ION Core</source>
         <translation>&amp;Rdzeń ION</translation>
     </message>
     <message>
@@ -1188,12 +1188,12 @@ Proszę sprawdzić adres i spróbować ponownie</translation>
         <translation>Zezwól na przychodzące połączenia</translation>
     </message>
     <message>
-        <source>Automatically start Ion after logging in to the system.</source>
-        <translation>Automatycznie uruchom Ion po zalogowaniu do systemu</translation>
+        <source>Automatically start ION after logging in to the system.</source>
+        <translation>Automatycznie uruchom ION po zalogowaniu do systemu</translation>
     </message>
     <message>
-        <source>&amp;Start Ion on system login</source>
-        <translation>&amp;Uruchom Ion podczas logowania do systemu</translation>
+        <source>&amp;Start ION on system login</source>
+        <translation>&amp;Uruchom ION podczas logowania do systemu</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -1222,8 +1222,8 @@ https://www.transifex.com/cevap/cevap-translations</source>
 https://www.transifex.com/cevap/cevap-translations </translation>
     </message>
     <message>
-        <source>Connect to the Ion network through a SOCKS5 proxy.</source>
-        <translation>Połącz z siecią Ion poprzez SOCKS5 proxy.</translation>
+        <source>Connect to the ION network through a SOCKS5 proxy.</source>
+        <translation>Połącz z siecią ION poprzez SOCKS5 proxy.</translation>
     </message>
     <message>
         <source>Proxy &amp;IP:</source>
@@ -1461,8 +1461,8 @@ https://www.transifex.com/cevap/cevap-translations </translation>
         <translation>Liczba</translation>
     </message>
     <message>
-        <source>Enter a Ion address (e.g. %1)</source>
-        <translation>Wprowadź adres Ion (np. %1)</translation>
+        <source>Enter a ION address (e.g. %1)</source>
+        <translation>Wprowadź adres ION (np. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1900,8 +1900,8 @@ https://www.transifex.com/cevap/cevap-translations </translation>
         <translation>Alt+P</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Ion address</source>
-        <translation>Zatwierdź wiadomość, aby udowodnić, że podany adres Ion jest w twoim posiadaniu</translation>
+        <source>Sign the message to prove you own this ION address</source>
+        <translation>Zatwierdź wiadomość, aby udowodnić, że podany adres ION jest w twoim posiadaniu</translation>
     </message>
     <message>
         <source>Clear &amp;All</source>
@@ -1935,7 +1935,7 @@ https://www.transifex.com/cevap/cevap-translations </translation>
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>Ion Core</source>
+        <source>ION Core</source>
         <translation>&amp;Rdzeń ION</translation>
     </message>
     </context>
