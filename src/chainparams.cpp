@@ -77,16 +77,12 @@ static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
 	(   75000,      uint256("20faec3994dac57fb88748e29139974522c91036e1bf8ff204c769a90fab5a12") ) // Fork June 2017
 	(   85000,      uint256("43ee28cd1f804dafe05ef120569726e50e9e6f2b634746925742cbd9f738c201") ) // Fork June 2017
 	(   88800,      uint256("2807b46cbfa28a2d4854215b40f4db64b62fc71a1d010844d67d7c03888ce692") ) // Fork June 2017
-    (  331099,      uint256("1ba565ae5336eeb1cbdc4c8804f229f685391d6b9a8568f7baf5c70b80bed17e") ) // Fork March 2018
-    (  331100,      uint256("b12c1f1b86a40b96a192b558e845a67a7085bcad3eae986524f19f6ee4131a80") ) // Fork March 2018
-	(  334500,      uint256("c7dfe5fe124807fdc10ca60021f19ec87d00a107feea0dc5ceda5be26db4e5d4") ) // Fork March 2018
-	(  337000,      uint256("cefc4c13a1b2fc3cda8b04244b35ce76b8e32fe22cc6bce44b1a9971dddd3074") ) // Fork March 2018
-	(  370000,      uint256("c2761da33448b864d880503bfd9a94961c93ecc539360e466336d13b2569142f") );// Fork March 2018
+	(  331099,      uint256("1ba565ae5336eeb1cbdc4c8804f229f685391d6b9a8568f7baf5c70b80bed17e") );// Testnet Fork June 2018
 
 static const Checkpoints::CCheckpointData dataTestnet = {
     &mapCheckpointsTestnet,
     1513532336,
-    742197,
+    662779,
     2000};
 
 static Checkpoints::MapCheckpoints mapCheckpointsRegtest =
