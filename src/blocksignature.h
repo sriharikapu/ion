@@ -1,4 +1,5 @@
-
+// Copyright (c) 2018 The PIVX developers
+// Copyright (c) 2018 The Ion Core developers
 
 #ifndef ION_BLOCKSIGNATURE_H
 #define ION_BLOCKSIGNATURE_H

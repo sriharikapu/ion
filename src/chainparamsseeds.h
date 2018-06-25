@@ -1,3 +1,6 @@
+// Copyright (c) 2018 The PIVX developers
+// Copyright (c) 2018 The Ion Core developers
+
 #ifndef BITCOIN_CHAINPARAMSSEEDS_H
 #define BITCOIN_CHAINPARAMSSEEDS_H
 /**

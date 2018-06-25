@@ -1,4 +1,5 @@
-
+// Copyright (c) 2018 The PIVX developers
+// Copyright (c) 2018 The Ion Core developers
 #include "blocksignature.h"
 #include "main.h"
 #include "xionchain.h"
