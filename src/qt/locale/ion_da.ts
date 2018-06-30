@@ -4745,7 +4745,7 @@ Enten mint højere nomineringer (så færre input er nødvendige) eller reducere
     </message>
 </context>
 <context>
-    <name>XIONControlDialog</name>
+    <name>XIonControlDialog</name>
     <message>
         <source>Quantity</source>
         <translation>Antal</translation>

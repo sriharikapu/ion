@@ -4858,7 +4858,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
 </context>
 <context>
-    <name>XIONControlDialog</name>
+    <name>XIonControlDialog</name>
     <message>
         <source>Select xION to Spend</source>
         <translation>Odabrani xION za utrošiti</translation>

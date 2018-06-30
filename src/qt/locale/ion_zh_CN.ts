@@ -1533,7 +1533,7 @@ Address: %4
     </message>
     </context>
 <context>
-    <name>XIONControlDialog</name>
+    <name>XIonControlDialog</name>
     </context>
 <context>
     <name>ion-core</name>

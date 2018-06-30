@@ -13,12 +13,12 @@
 using namespace std;
 using namespace libzerocoin;
 
-std::set<std::string> XIONControlDialog::setSelectedMints;
-std::set<CMintMeta> XIONControlDialog::setMints;
+std::set<std::string> XIonControlDialog::setSelectedMints;
+std::set<CMintMeta> XIonControlDialog::setMints;
 
-XIONControlDialog::XIONControlDialog(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::XIONControlDialog),
+XIonControlDialog::XIonControlDialog(QWidget *parent) :
+    QDialog(parent, Qt::WindowSystemMenuHint | Qt::WindowTitleHint | Qt::WindowCloseButtonHint),
+    ui(new Ui::XIonControlDialog),
     model(0)
 {
     ui->setupUi(this);
@@ -32,19 +32,19 @@ XIONControlDialog::XIONControlDialog(QWidget *parent) :
     connect(ui->pushButtonAll, SIGNAL(clicked()), this, SLOT(ButtonAllClicked()));
 }
 
-XIONControlDialog::~XIONControlDialog()
+XIonControlDialog::~XIonControlDialog()
 {
     delete ui;
 }
 
-void XIONControlDialog::setModel(WalletModel *model)
+void XIonControlDialog::setModel(WalletModel *model)
 {
     this->model = model;
     updateList();
 }
 
 //Update the tree widget
-void XIONControlDialog::updateList()
+void XIonControlDialog::updateList()
 {
     // need to prevent the slot from being called each time something is changed
     ui->treeWidget->blockSignals(true);
@@ -129,7 +129,7 @@ void XIONControlDialog::updateList()
 }
 
 // Update the list when a checkbox is clicked
-void XIONControlDialog::updateSelection(QTreeWidgetItem* item, int column)
+void XIonControlDialog::updateSelection(QTreeWidgetItem* item, int column)
 {
     // only want updates from non top level items that are available to spend
     if (item->parent() && column == COLUMN_CHECKBOX && !item->isDisabled()){
@@ -151,7 +151,7 @@ void XIONControlDialog::updateSelection(QTreeWidgetItem* item, int column)
 }
 
 // Update the Quantity and Amount display
-void XIONControlDialog::updateLabels()
+void XIonControlDialog::updateLabels()
 {
     int64_t nAmount = 0;
     for (const CMintMeta& mint : setMints) {
@@ -167,7 +167,7 @@ void XIONControlDialog::updateLabels()
     privacyDialog->setXIONControlLabels(nAmount, setSelectedMints.size());
 }
 
-std::vector<CMintMeta> XIONControlDialog::GetSelectedMints()
+std::vector<CMintMeta> XIonControlDialog::GetSelectedMints()
 {
     std::vector<CMintMeta> listReturn;
     for (const CMintMeta& mint : setMints) {
@@ -179,7 +179,7 @@ std::vector<CMintMeta> XIONControlDialog::GetSelectedMints()
 }
 
 // select or deselect all of the mints
-void XIONControlDialog::ButtonAllClicked()
+void XIonControlDialog::ButtonAllClicked()
 {
     ui->treeWidget->blockSignals(true);
     Qt::CheckState state = Qt::Checked;

@@ -59,6 +59,7 @@ bool PublicCoin::validate() const
         return false;
     }
 
+    // CEVAP - Enable check if falue is prime
     if (!value.isPrime(params->zkp_iterations)) {
         cout << "PublicCoin::validate value is not prime\n";
         return false;

@@ -8,6 +8,7 @@
 
 # We can't run this check unless we know the commit range for the PR.
 
+export LC_ALL=C
 while getopts "?" opt; do
   case $opt in
     ?)
@@ -15,7 +16,7 @@ while getopts "?" opt; do
       echo "       TRAVIS_COMMIT_RANGE='<commit range>' .lint-whitespace.sh"
       echo "       .lint-whitespace.sh -?"
       echo "Checks unstaged changes, the previous N commits, or a commit range."
-      echo "TRAVIS_COMMIT_RANGE='47ba2c3...ee50c9e' .lint-whitespace.sh"
+      echo "TRAVIS_COMMIT_RANGE='a9e8f5c...ddade55' .lint-whitespace.sh"
       exit 0
     ;;
   esac

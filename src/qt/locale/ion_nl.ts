@@ -4858,7 +4858,7 @@ Ofwel het munten van hogere denominaties (dus minder invoer nodig) of het te bes
     </message>
 </context>
 <context>
-    <name>XIONControlDialog</name>
+    <name>XIonControlDialog</name>
     <message>
         <source>Select xION to Spend</source>
         <translation>Selecteer xION om te besteden</translation>

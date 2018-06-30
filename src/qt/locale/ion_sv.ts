@@ -4625,7 +4625,7 @@ Minta antingen högre valörer (så att färre inputs behövs) eller spendera mi
     </message>
 </context>
 <context>
-    <name>XIONControlDialog</name>
+    <name>XIonControlDialog</name>
     <message>
         <source>Select xION to Spend</source>
         <translation>Välj xION att Spendera</translation>

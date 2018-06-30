@@ -210,10 +210,10 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
         nWatchOnlyLockedBalance = pwalletMain->GetLockedWatchOnlyBalance();
     }
     // Ion Balance
-    CAmount nTotalBalance = balance + unconfirmedBalance + nLockedBalance;
-    CAmount ionAvailableBalance = balance - immatureBalance;
+    CAmount nTotalBalance = balance + unconfirmedBalance;
+    CAmount ionAvailableBalance = balance - immatureBalance - nLockedBalance;
     CAmount nTotalWatchBalance = watchOnlyBalance + watchUnconfBalance + watchImmatureBalance;
-    CAmount nUnlockedBalance = nTotalBalance - nLockedBalance - nLockedBalance; // increment nLockedBalance twice because it was added to
+    CAmount nUnlockedBalance = nTotalBalance - nLockedBalance; // CEVAP: this is not correct anymore: increment nLockedBalance twice because it was added to
                                                                                 // nTotalBalance above
     // xION Balance
     CAmount matureZerocoinBalance = zerocoinBalance - unconfirmedZerocoinBalance - immatureZerocoinBalance;

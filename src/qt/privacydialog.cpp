@@ -25,7 +25,7 @@
 #include <primitives/deterministicmint.h>
 #include <accumulators.h>
 
-PrivacyDialog::PrivacyDialog(QWidget* parent) : QDialog(parent),
+PrivacyDialog::PrivacyDialog(QWidget* parent) : QDialog(parent, Qt::WindowSystemMenuHint | Qt::WindowTitleHint | Qt::WindowCloseButtonHint | Qt::WindowCloseButtonHint),
                                                           ui(new Ui::PrivacyDialog),
                                                           walletModel(0),
                                                           currentBalance(-1)
@@ -297,7 +297,7 @@ void PrivacyDialog::on_pushButtonXIONControl_clicked()
     if (!walletModel || !walletModel->getOptionsModel())
         return;
 
-    XIONControlDialog* xIONControl = new XIONControlDialog(this);
+    XIonControlDialog* xIONControl = new XIonControlDialog(this);
     xIONControl->setModel(walletModel);
     xIONControl->exec();
 }
@@ -413,8 +413,8 @@ void PrivacyDialog::sendxION()
     // use mints from xION selector if applicable
     vector<CMintMeta> vMintsToFetch;
     vector<CZerocoinMint> vMintsSelected;
-    if (!XIONControlDialog::setSelectedMints.empty()) {
-        vMintsToFetch = XIONControlDialog::GetSelectedMints();
+    if (!XIonControlDialog::setSelectedMints.empty()) {
+        vMintsToFetch = XIonControlDialog::GetSelectedMints();
 
         for (auto& meta : vMintsToFetch) {
             if (meta.nVersion < libzerocoin::PrivateCoin::PUBKEY_VERSION) {
@@ -486,7 +486,7 @@ void PrivacyDialog::sendxION()
     }
 
     // Clear xion selector in case it was used
-    XIONControlDialog::setSelectedMints.clear();
+    XIonControlDialog::setSelectedMints.clear();
     ui->labelxIONSelected_int->setText(QString("0"));
     ui->labelQuantitySelected_int->setText(QString("0"));
 

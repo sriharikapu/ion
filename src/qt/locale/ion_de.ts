@@ -4848,7 +4848,7 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
     </message>
 </context>
 <context>
-    <name>XIONControlDialog</name>
+    <name>XIonControlDialog</name>
     <message>
         <source>Select xION to Spend</source>
         <translation>Wählen Sie die xION aus, die Sie ausgeben möchten</translation>

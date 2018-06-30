@@ -3635,7 +3635,7 @@ https://www.transifex.com/cevap/cevap-translations</translation>
     </message>
 </context>
 <context>
-    <name>XIONControlDialog</name>
+    <name>XIonControlDialog</name>
     <message>
         <source>Quantity</source>
         <translation>Quantia</translation>
