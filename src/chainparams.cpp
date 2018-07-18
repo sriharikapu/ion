@@ -317,6 +317,7 @@ public:
 
         vFixedSeeds.clear();
         vSeeds.clear();
+        vSeeds.push_back(CDNSSeedData("ion.mitchellcash.com", "testnet-seed.ion.mitchellcash.com")); // Mitchell Cash
         vSeeds.push_back(CDNSSeedData("1", "testnet.seeder.baseserv.com")); // Ion's official testseed 1
         vSeeds.push_back(CDNSSeedData("2", "testnet.seeder.uksafedns.net")); // Ion's official testseed 2
         // Testnet Ion addresses start with 'g'
